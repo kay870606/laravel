@@ -1,30 +1,30 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Create a New Project</h1>
+    <h1 class="title">Create a New Category</h1>
 
-    <form method="POST" action="/projects">
+    <form method="POST" action="/categories">
         {{ csrf_field() }}
 
         <div class="field">
-            <label class="label" for="title">Project Title</label>
+            <label class="label" for="title">Category number</label>
 
             <div class="control">
-                <input type="text" name="title" placeholder="Project title" class="input {{ $errors->has('title') ? 'is-danger' : '' }}" value="{{ old('title') }}" required>
+                <input type="text" name="number" placeholder="Category number" class="input {{ $errors->has('number') ? 'is-danger' : '' }}" value="{{ old('number') }}" required>
             </div>
         </div>
 
         <div class="field">
-            <label class="label" for="description">Project Description</label>
+            <label class="label" for="description">Category name</label>
 
             <div class="control">
-                <textarea name="description" placeholder="Project description" class="textarea {{ $errors->has('description') ? 'is-danger' : '' }}" required>{{ old('description') }}</textarea>
+                <textarea name="name" placeholder="Category name" class="textarea {{ $errors->has('name') ? 'is-danger' : '' }}" required>{{ old('name') }}</textarea>
             </div>
         </div>
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Create Project</button>
+                <button type="submit" class="button is-link">Create Category</button>
             </div>
         </div>
 

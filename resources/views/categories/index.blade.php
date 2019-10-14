@@ -16,4 +16,6 @@
             </li>
         @endforeach
     </ol>
+
+    <a href="/categories/create">Create</a>
 @endsection

@@ -150,7 +150,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -211,7 +211,11 @@
       <workItem from="1570843784270" duration="4861000" />
       <workItem from="1570926076838" duration="5627000" />
       <workItem from="1570941388813" duration="225000" />
-      <workItem from="1570941626373" duration="728000" />
+      <workItem from="1570941626373" duration="1011000" />
+      <workItem from="1570967719708" duration="370000" />
+      <workItem from="1570968667486" duration="6008000" />
+      <workItem from="1571050249636" duration="2265000" />
+      <workItem from="1571058970011" duration="5289000" />
     </task>
     <servers />
   </component>

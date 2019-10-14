@@ -15,4 +15,46 @@
         </p>
     </div>
 
+    {{--@if ($category->subcategories->count())
+        <div class="box">
+            @foreach ($category->subcatecories as $subcategory)
+                <div>
+                    <form method="POST" action="/completed-tasks/{{ $task->id }}">
+                        @if ($task->completed)
+                            @method('DELETE')
+                        @endif
+
+                        @csrf
+
+                        <label class="checkbox {{ $task->completed ? 'is-complete' : '' }}" for="completed">
+                            <input type="checkbox" name="completed" onChange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
+                            {{ $task->description }}
+                        </label>
+                    </form>
+                </div>
+            @endforeach
+        </div>
+    @endif--}}
+
+    {{-- add a new task form --}}
+    <form method="POST" action="/categories/{{ $category->id }}/subcategories" class="box">
+        @csrf
+
+        <div class="field">
+            <label for="description" class="label">New Subcategory</label>
+
+            <div class="control">
+                <input type="text" name="name" placeholder="Name" class="input" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-link">Add Subcategory</button>
+            </div>
+        </div>
+
+        @include ('errors')
+    </form>
+
 @endsection
