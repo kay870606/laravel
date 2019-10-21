@@ -1,25 +1,27 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">{{ $category->number }}</h1>
+    <h1 class="title">{{ $category->id }}</h1>
 
     {{-- @can('update', $project)
         <a href="">Update</a>
     @endcan --}}
 
     <div>
-        {{ $category->name }}
+        <p>{{ $category->number }}</p>
+
+        <p> {{ $category->name }}</p>
 
         <p>
             <a href="/categories/{{ $category->id }}/edit">Edit</a>
         </p>
     </div>
 
-    {{--@if ($category->subcategories->count())
+    @if ($category->subcategories->count())
         <div class="box">
-            @foreach ($category->subcatecories as $subcategory)
+            @foreach ($category->subcategories as $subcategory)
                 <div>
-                    <form method="POST" action="/completed-tasks/{{ $task->id }}">
+                    {{--<form method="POST" action="/completed-tasks/{{ $task->id }}">
                         @if ($task->completed)
                             @method('DELETE')
                         @endif
@@ -30,11 +32,12 @@
                             <input type="checkbox" name="completed" onChange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
                             {{ $task->description }}
                         </label>
-                    </form>
+                    </form>--}}
+                    {{ $subcategory->name }}
                 </div>
             @endforeach
         </div>
-    @endif--}}
+    @endif
 
     {{-- add a new task form --}}
     <form method="POST" action="/categories/{{ $category->id }}/subcategories" class="box">

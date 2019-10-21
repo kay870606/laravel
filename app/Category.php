@@ -12,4 +12,9 @@ class Category extends Model
     {
         return $this->hasMany(Subcategory::class);
     }
+
+    public function addSubcategory($subcategory)
+    {
+        $this->subcategories()->create($subcategory);
+    }
 }

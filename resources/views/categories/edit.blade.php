@@ -18,7 +18,7 @@
                 <label class="label" for="description">Name</label>
 
                 <div class="control">
-                    <textarea name="name" class="textarea">{{ $category->name }}</textarea>
+                    <input type="text" name="name" class="input" placeholder="Name" value="{{ $category->name }}">
                 </div>
             </div>
 

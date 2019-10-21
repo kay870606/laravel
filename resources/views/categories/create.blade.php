@@ -19,6 +19,7 @@
 
             <div class="control">
                 <textarea name="name" placeholder="Category name" class="textarea {{ $errors->has('name') ? 'is-danger' : '' }}" required>{{ old('name') }}</textarea>
+                {{--<input type="text" name="name" class="input" placeholder="Name" value="{{ $category->name }}">--}}
             </div>
         </div>
 

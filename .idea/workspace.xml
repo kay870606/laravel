@@ -41,6 +41,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="homestead: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="homestead@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="homestead: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="subcategories: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -150,7 +157,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -174,12 +181,7 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@42fdccac" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -216,6 +218,11 @@
       <workItem from="1570968667486" duration="6008000" />
       <workItem from="1571050249636" duration="2265000" />
       <workItem from="1571058970011" duration="5289000" />
+      <workItem from="1571116586105" duration="1367000" />
+      <workItem from="1571126953445" duration="2590000" />
+      <workItem from="1571213684001" duration="3357000" />
+      <workItem from="1571285725514" duration="2598000" />
+      <workItem from="1571557904588" duration="3052000" />
     </task>
     <servers />
   </component>
