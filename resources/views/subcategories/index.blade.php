@@ -1,19 +1,19 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Categories</h1>
+    <h1 class="title">Subcategories</h1>
 
     <ol>
-        @foreach ($categories as $category)
+        @foreach ($subcategories as $subcategory)
             <li>
-                <a href="/categories/{{ $category->id }}">
-                    {{ $category->number ."   ".$category->name }}
+                <a href="/subcategories/{{ $subcategory->id }}">
+                    {{ $subcategory->name }}
                 </a>
             </li>
         @endforeach
     </ol>
 
-    <form method="GET" action="/categories/create">
+    <form method="GET" action="/subcategories/create">
         @csrf
 
         <div class="field">
