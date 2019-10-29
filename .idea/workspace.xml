@@ -154,10 +154,16 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/subcategories" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/subcategories" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -223,6 +229,10 @@
       <workItem from="1571213684001" duration="3357000" />
       <workItem from="1571285725514" duration="2598000" />
       <workItem from="1571557904588" duration="3052000" />
+      <workItem from="1571659728651" duration="21000" />
+      <workItem from="1571659761420" duration="1438000" />
+      <workItem from="1572269970149" duration="4245000" />
+      <workItem from="1572309344090" duration="1863000" />
     </task>
     <servers />
   </component>

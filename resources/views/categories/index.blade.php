@@ -11,11 +11,20 @@
         @foreach ($categories as $category)
             <li>
                 <a href="/categories/{{ $category->id }}">
-                    {{ $category->number .$category->name }}
+                    {{ $category->number ."   ".$category->name }}
                 </a>
             </li>
         @endforeach
     </ol>
 
-    <a href="/categories/create">Create</a>
+    <form method="GET" action="/categories/create">
+        @csrf
+
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-link">Create</button>
+            </div>
+        </div>
+    </form>
+
 @endsection

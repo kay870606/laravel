@@ -46,8 +46,9 @@ class CategoriesController extends Controller
      * @param \App\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
+        $category = Category::findOrFail($id);
         return view('categories.show', compact('category'));
     }
 
@@ -57,8 +58,9 @@ class CategoriesController extends Controller
      * @param \App\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
+        $category = Category::findOrFail($id);
         return view('categories.edit', compact('category'));
     }
 
@@ -69,8 +71,9 @@ class CategoriesController extends Controller
      * @param \App\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
+        $category = Category::findOrFail($id);
         $category->update($this->validateCategory());
         return redirect('/categories');
     }
@@ -81,8 +84,9 @@ class CategoriesController extends Controller
      * @param \App\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
+        $category = Category::findOrFail($id);
         $category->delete();
         return redirect('/categories');
     }
