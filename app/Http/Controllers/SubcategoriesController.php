@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Subcategory;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class SubcategoriesController extends Controller
@@ -13,8 +15,12 @@ class SubcategoriesController extends Controller
      */
     public function index()
     {
-        $subcategories = Subcategory::all();
-        return view('subcategories.index', compact('subcategories'));
+        $subcategories = DB::table('subcategories')
+            ->join('categories', 'subcategories.category_id', '=', 'categories.id')
+            ->select('subcategories.*', 'categories.number')
+            ->get();
+        return $subcategories;
+        //return view('subcategories.index', compact('subcategories'));
     }
 
     /**
@@ -93,7 +99,7 @@ class SubcategoriesController extends Controller
     protected function validateSubcategory()
     {
         return request()->validate([
-            'category_id' => 'required',
+            'category_id' => 'required|exists:categories',
             'name' => 'required'
         ]);
     }
