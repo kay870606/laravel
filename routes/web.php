@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/categories', 'CategoriesController');
+Route::resource('/categories', 'CategoryController');
 
-Route::resource('/subcategories', 'SubcategoriesController');
+Route::resource('/subcategories', 'SubcategoryController');
 

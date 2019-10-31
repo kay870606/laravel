@@ -1,19 +1,19 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">{{ $category->id }}</h1>
+    <h1 class="title">{{ $subcategory->id }}</h1>
 
     {{-- @can('update', $project)
         <a href="">Update</a>
     @endcan --}}
 
     <div>
-        <p>{{ $category->number }}</p>
+        <p>{{ $subcategory->number }}</p>
 
-        <p> {{ $category->name }}</p>
+        <p>{{ $subcategory->name }}</p>
 
         <p>
-            <a href="/categories/{{ $category->id }}/edit">Edit</a>
+            <a href="/subcategories/{{ $subcategory->id }}/edit">Edit</a>
         </p>
     </div>
 
