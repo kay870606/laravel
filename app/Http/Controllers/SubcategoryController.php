@@ -15,10 +15,12 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
-        $subcategories = DB::table('subcategories')
+        /*$subcategories = DB::table('subcategories')
             ->join('categories', 'subcategories.category_id', '=', 'categories.id')
             ->select('subcategories.*', 'categories.number')
-            ->get();
+            ->get();*/
+
+        $subcategories = Subcategory::with('category')->get();
 
         //return $subcategories;
         return view('subcategories.index', compact('subcategories'));
@@ -54,12 +56,9 @@ class SubcategoryController extends Controller
      */
     public function show($id)
     {
-        $subcategory = Subcategory::findOrFail($id);
-        $subcategories = DB::table('subcategories')
-            ->join('categories', 'subcategories.category_id', '=', 'categories.id')
-            ->select('subcategories.*', 'categories.number')
-            ->get();
+        $subcategory = Subcategory::findOrFail($id)->with('category')->first();
 
+        //return $subcategory;
         return view('subcategories.show', compact('subcategory'));
     }
 
@@ -84,8 +83,9 @@ class SubcategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $subcategory = Subcategory::findOrFail($id);
-        $subcategory->update($this->validateSubcategory());
+        $subcategory = Subcategory::findOrFail($id)
+            ->update($this->validateSubcategory());
+
         return view('subcategories.edit', compact('subcategory'));
     }
 
@@ -97,8 +97,9 @@ class SubcategoryController extends Controller
      */
     public function destroy($id)
     {
-        $subcategory = Subcategory::findOrFail($id);
-        $subcategory->delete();
+        $subcategory = Subcategory::findOrFail($id)
+            ->delete();
+
         return view('subcategories.edit', compact('subcategory'));
     }
 

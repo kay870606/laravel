@@ -8,7 +8,9 @@
     @endcan --}}
 
     <div>
-        <p>{{ $subcategory->number }}</p>
+        <p>{{ $subcategory->category->number }}</p>
+
+        <p>{{ $subcategory->category->name }}</p>
 
         <p>{{ $subcategory->name }}</p>
 

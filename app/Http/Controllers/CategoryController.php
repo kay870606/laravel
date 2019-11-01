@@ -73,8 +73,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::findOrFail($id);
-        $category->update($this->validateCategory());
+        $category = Category::findOrFail($id)
+            ->update($this->validateCategory());
         return redirect('/categories');
     }
 
@@ -86,8 +86,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
-        $category->delete();
+        $category = Category::findOrFail($id)
+            ->delete();
         return redirect('/categories');
     }
 

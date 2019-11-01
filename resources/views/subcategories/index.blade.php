@@ -7,7 +7,7 @@
         @foreach ($subcategories as $subcategory)
             <li>
                 <a href="/subcategories/{{ $subcategory->id }}">
-                    {{ $subcategory->number .'  '.$subcategory->name }}
+                    {{ $subcategory->category->number .'  '.$subcategory->name }}
                 </a>
             </li>
         @endforeach
