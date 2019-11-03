@@ -3,16 +3,6 @@
 @section('content')
     <h1 class="title">Subcategories</h1>
 
-    <ol>
-        @foreach ($subcategories as $subcategory)
-            <li>
-                <a href="/subcategories/{{ $subcategory->id }}">
-                    {{ $subcategory->category->number .'  '.$subcategory->name }}
-                </a>
-            </li>
-        @endforeach
-    </ol>
-
     <form method="GET" action="/subcategories/create">
         @csrf
 
@@ -22,5 +12,15 @@
             </div>
         </div>
     </form>
+
+    <ol>
+        @foreach ($subcategories as $subcategory)
+            <li>
+                <a href="/subcategories/{{ $subcategory->id }}">
+                    {{ $subcategory->category->number .'  '.$subcategory->name }}
+                </a>
+            </li>
+        @endforeach
+    </ol>
 
 @endsection

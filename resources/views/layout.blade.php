@@ -11,6 +11,8 @@
 </head>
 <body>
 
+<a href="/">首頁</a>
+
 <div class="container">
     @yield('content')
 </div>

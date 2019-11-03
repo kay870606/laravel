@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Subcategory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class SubcategoryController extends Controller
 {
@@ -33,7 +33,8 @@ class SubcategoryController extends Controller
      */
     public function create()
     {
-        return view('subcategories.create');
+        $categories = Category::all();
+        return view('subcategories.create',compact('categories'));
     }
 
     /**
@@ -44,6 +45,14 @@ class SubcategoryController extends Controller
      */
     public function store(Request $request)
     {
+        /*$subcategory = new Subcategory();
+        $category_number = $request->input('category_number');
+        $category_id = Category::where('number', $category_number)->select('id')->first()->id;
+        $subcategory->category_id = $category_id;
+        $subcategory->name = $request->name;
+        $subcategory->save();*/
+        //return $request->input('category_id');
+
         Subcategory::create($this->validateSubcategory());
         return redirect('/subcategories');
     }
@@ -56,7 +65,7 @@ class SubcategoryController extends Controller
      */
     public function show($id)
     {
-        $subcategory = Subcategory::findOrFail($id)->with('category')->first();
+        $subcategory = Subcategory::with('category')->find($id);
 
         //return $subcategory;
         return view('subcategories.show', compact('subcategory'));
@@ -70,8 +79,10 @@ class SubcategoryController extends Controller
      */
     public function edit($id)
     {
+        $categories = Category::all();
         $subcategory = Subcategory::findOrFail($id);
-        return view('subcategories.edit', compact('subcategory'));
+        //return  compact('subcategory','categories');
+        return view('subcategories.edit', compact('subcategory','categories'));
     }
 
     /**
@@ -86,7 +97,7 @@ class SubcategoryController extends Controller
         $subcategory = Subcategory::findOrFail($id)
             ->update($this->validateSubcategory());
 
-        return view('subcategories.edit', compact('subcategory'));
+        return redirect('/subcategories');
     }
 
     /**
@@ -100,13 +111,13 @@ class SubcategoryController extends Controller
         $subcategory = Subcategory::findOrFail($id)
             ->delete();
 
-        return view('subcategories.edit', compact('subcategory'));
+        return redirect('/subcategories');
     }
 
     protected function validateSubcategory()
     {
         return request()->validate([
-            'category_id' => 'required|exists:categories',
+            'category_id' => 'required|exists:categories,id',
             'name' => 'required'
         ]);
     }

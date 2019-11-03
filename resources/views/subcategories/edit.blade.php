@@ -1,43 +1,46 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Edit Category</h1>
+    <h1 class="title">Edit Subcategory</h1>
 
-    <form method="POST" action="/categories/{{ $category->id }}" style="margin-bottom: 1em;">
+    <form method="POST" action="/subcategories/{{ $subcategory->id }}" style="margin-bottom: 1em;">
         @method('PATCH')
         @csrf
 
         <div class="field">
-            <label class="label">Number</label>
-            <div class="control">
-                <input type="text" name="number" class="input" placeholder="Number" value="{{ $category->number }}">
+            <label class="label">Category</label>
+            <div class="select">
+                <select name="category_id">
+                    @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->number.'  '.$category->name}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
         <div class="field">
             <label class="label">Name</label>
             <div class="control">
-                <input type="text" name="name" class="input" placeholder="Name" value="{{ $category->name }}">
+                <input type="text" name="name" class="input" placeholder="Name" value="{{ $subcategory->name }}">
             </div>
         </div>
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Update Category</button>
+                <button type="submit" class="button is-link">Update Subcategory</button>
             </div>
         </div>
-
     </form>
 
     @include ('errors')
 
-    <form method="POST" action="/categories/{{ $category->id }}">
+    <form method="POST" action="/subcategories/{{ $subcategory->id }}">
         @method('DELETE')
         @csrf
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button">Delete Category</button>
+                <button type="submit" class="button">Delete Subcategory</button>
             </div>
         </div>
     </form>

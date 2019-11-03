@@ -7,16 +7,20 @@
         @csrf
 
         <div class="field">
-            <label class="label">Subcategory number</label>
-            <div class="control">
-                <input type="text" name="number" placeholder="Subcategory number" class="input" required>
+            <label class="label">Category</label>
+            <div class="select">
+                <select name="category_id">
+                    @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->number.'  '.$category->name}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
         <div class="field">
-            <label class="label" >Subcategory name</label>
+            <label class="label">Subcategory name</label>
             <div class="control">
-                <input type="text" name="name" class="input" placeholder="Name">
+                <input type="text" name="name" class="input" placeholder="Name" required>
             </div>
         </div>
 
