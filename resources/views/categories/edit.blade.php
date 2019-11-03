@@ -10,14 +10,14 @@
         <div class="field">
             <label class="label">Number</label>
             <div class="control">
-                <input type="text" name="number" class="input" placeholder="Number" value="{{ $category->number }}">
+                <input type="text" name="number" class="input" placeholder="Number" value="{{ $category->number }}" required>
             </div>
         </div>
 
         <div class="field">
             <label class="label">Name</label>
             <div class="control">
-                <input type="text" name="name" class="input" placeholder="Name" value="{{ $category->name }}">
+                <input type="text" name="name" class="input" placeholder="Name" value="{{ $category->name }}" required>
             </div>
         </div>
 

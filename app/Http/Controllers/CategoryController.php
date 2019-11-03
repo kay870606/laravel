@@ -96,7 +96,7 @@ class CategoryController extends Controller
     protected function validateCategory()
     {
         return request()->validate([
-            'number' => 'required',
+            'number' =>'required|unique:categories,number',
             'name' => 'required'
         ]);
     }

@@ -18,7 +18,7 @@
             <label class="label" >Category name</label>
 
             <div class="control">
-                <input type="text" name="name" class="input" placeholder="Name">
+                <input type="text" name="name" class="input" placeholder="Name" required>
             </div>
         </div>
 
