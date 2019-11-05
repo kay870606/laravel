@@ -11,7 +11,12 @@
 </head>
 <body>
 
-<a href="/">首頁</a>
+{{--<div class="box">
+    <a href="/">首頁</a>
+    <a href="/categories">分類</a>
+    <a href="/subcategories">小分類</a>
+    <a href="/api/categories">api分類</a>
+</div>--}}
 
 <div class="container">
     @yield('content')
