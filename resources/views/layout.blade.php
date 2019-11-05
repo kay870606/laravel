@@ -19,6 +19,24 @@
 </div>--}}
 
 <div class="container">
+    <nav class="level">
+        <p class="level-item has-text-centered">
+            <a class="link is-info" href="/">首頁</a>
+        </p>
+        <p class="level-item has-text-centered">
+            <a class="link is-info" href="/categories">分類</a>
+        </p>
+        <p class="level-item has-text-centered">
+            <a class="link is-info" href="/subcategories">小分類</a>
+        </p>
+        <p class="level-item has-text-centered">
+            <a class="link is-info" href="/api/categories">api分類</a>
+        </p>
+    </nav>
+</div>
+
+
+<div class="container">
     @yield('content')
 </div>
 

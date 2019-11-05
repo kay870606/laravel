@@ -13,14 +13,16 @@
         </div>
     </form>
 
-    <ol>
-        @foreach ($subcategories as $subcategory)
-            <li>
-                <a href="/subcategories/{{ $subcategory->id }}">
-                    {{ $subcategory->category->number .'  '.$subcategory->name }}
-                </a>
-            </li>
-        @endforeach
-    </ol>
+    <div class="content">
+        <ol>
+            @foreach ($subcategories as $subcategory)
+                <li>
+                    <a href="/subcategories/{{ $subcategory->id }}">
+                        {{ $subcategory->category->number .'  '.$subcategory->name }}
+                    </a>
+                </li>
+            @endforeach
+        </ol>
+    </div>
 
 @endsection

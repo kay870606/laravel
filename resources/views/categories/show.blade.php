@@ -10,7 +10,7 @@
     <div>
         <p>{{ $category->number }}</p>
 
-        <p> {{ $category->name }}</p>
+        <p>{{ $category->name }}</p>
 
         <p>
             <a href="/categories/{{ $category->id }}/edit">Edit</a>

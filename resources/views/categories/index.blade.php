@@ -13,14 +13,16 @@
         </div>
     </form>
 
-    <ol>
-        @foreach ($categories as $category)
-            <li>
-                <a href="/categories/{{ $category->id }}">
-                    {{ $category->number .'   '.$category->name }}
-                </a>
-            </li>
-        @endforeach
-    </ol>
+    <div class="content">
+        <ol type="1">
+            @foreach ($categories as $category)
+                <li>
+                    <a href="/categories/{{ $category->id }}">
+                        {{ $category->number .'   '.$category->name }}
+                    </a>
+                </li>
+            @endforeach
+        </ol>
+    </div>
 
 @endsection
