@@ -17,4 +17,13 @@ Route::get('/', function () {
 
 Route::resource('categories', 'CategoryController');
 Route::resource('subcategories', 'SubcategoryController');
+Route::resource('activities', 'ActivityController');
 
+Route::get('/test', function () {
+    //Storage::put('file.txt', 'Contents');
+    //return Storage::get('file.txt');
+    /*$content= Storage::get('8.png');
+    return response($content, 200, [
+        'Content-Type' => 'image/png',
+    ]);*/
+});

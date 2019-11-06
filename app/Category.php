@@ -17,4 +17,9 @@ class Category extends Model
     {
         $this->subcategories()->create($subcategory);
     }
+
+    public function beacons()
+    {
+        return $this->hasMany('App\Beacon');
+    }
 }
