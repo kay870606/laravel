@@ -87,6 +87,7 @@
                 <div class="links">
                     <a href="/categories">分類</a>
                     <a href="/subcategories">小分類</a>
+                    <a href="/beacons">Beacon</a>
                     <a href="/api/categories">api分類</a>
                     {{--<a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>

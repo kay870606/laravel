@@ -30,6 +30,9 @@
             <a class="link is-info" href="/subcategories">小分類</a>
         </p>
         <p class="level-item has-text-centered">
+            <a class="link is-info" href="/beacons">Beacon</a>
+        </p>
+        <p class="level-item has-text-centered">
             <a class="link is-info" href="/api/categories">api分類</a>
         </p>
     </nav>

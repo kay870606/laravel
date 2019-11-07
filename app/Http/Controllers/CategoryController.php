@@ -48,40 +48,58 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param Category $category
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+    public function show(Category $category)
+    {
+        return view('categories.show', compact('category'));
+    }
+
+    /*public function show($id)
     {
         $category = Category::findOrFail($id);
         return view('categories.show', compact('category'));
-    }
+    }*/
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
+     * @param Category $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
+    {
+        return view('categories.edit', compact('category'));
+    }
+
+    /*public function edit($id)
     {
         $category = Category::findOrFail($id);
         return view('categories.edit', compact('category'));
-    }
+    }*/
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param CategoryRequest $request
+     * @param Category $category
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $request, $id)
+
+    public function update(CategoryRequest $request, Category $category)
+    {
+        $validated = $request->validated();
+        $category->update($validated);
+        return redirect('/categories');
+    }
+    /*public function update(CategoryRequest $request, $id)
     {
         $validated = $request->validated();
         Category::findOrFail($id)->update($validated);
         return redirect('/categories');
-    }
+    }*/
 
     /**
      * Remove the specified resource from storage.
@@ -89,12 +107,18 @@ class CategoryController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+    public function destroy(Category $category)
+    {
+        $category->delete();
+        return redirect('/categories');
+    }
+    /*public function destroy($id)
     {
         Category::findOrFail($id)->delete();
 
         return redirect('/categories');
-    }
+    }*/
 
     /*protected function validateCategory()
     {

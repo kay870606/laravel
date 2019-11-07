@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Beacon;
+use App\Http\Requests\BeaconRequest;
 use Illuminate\Http\Request;
 
 class BeaconController extends Controller
@@ -35,7 +36,7 @@ class BeaconController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BeaconRequest $request)
     {
         $validated = $request->validated();
         Beacon::create($validated);
@@ -62,7 +63,7 @@ class BeaconController extends Controller
      */
     public function edit(Beacon $beacon)
     {
-        return view('beacons.show', compact('beacon'));
+        return view('beacons.edit', compact('beacon'));
     }
 
     /**
@@ -72,7 +73,7 @@ class BeaconController extends Controller
      * @param  \App\Beacon  $beacon
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Beacon $beacon)
+    public function update(BeaconRequest $request, Beacon $beacon)
     {
         $validated = $request->validated();
         $beacon->update($validated);

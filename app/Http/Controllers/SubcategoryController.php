@@ -64,14 +64,11 @@ class SubcategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param Subcategory $subcategory
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Subcategory $subcategory)
     {
-        $subcategory = Subcategory::with('category')->find($id);
-
-        //return $subcategory;
         return view('subcategories.show', compact('subcategory'));
     }
 
@@ -81,10 +78,9 @@ class SubcategoryController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Subcategory $subcategory)
     {
         $categories = Category::all();
-        $subcategory = Subcategory::findOrFail($id);
         //return  compact('subcategory','categories');
         return view('subcategories.edit', compact('subcategory', 'categories'));
     }
@@ -92,15 +88,14 @@ class SubcategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param SubcategoryRequest $request
+     * @param Subcategory $subcategory
      * @return \Illuminate\Http\Response
      */
-    public function update(SubcategoryRequest $request, $id)
+    public function update(SubcategoryRequest $request, Subcategory $subcategory)
     {
         $validated = $request->validated();
-        Subcategory::findOrFail($id)->update($validated);
-
+        $subcategory->update($validated);
         return redirect('/subcategories');
     }
 
@@ -110,10 +105,9 @@ class SubcategoryController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Subcategory $subcategory)
     {
-        Subcategory::findOrFail($id)->delete();
-
+        $subcategory->delete();
         return redirect('/subcategories');
     }
 

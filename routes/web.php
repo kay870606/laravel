@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::resource('categories', 'CategoryController');
 Route::resource('subcategories', 'SubcategoryController');
-Route::resource('activities', 'ActivityController');
+Route::resource('beacons', 'BeaconController');
 
 Route::get('/test', function () {
     //Storage::put('file.txt', 'Contents');
