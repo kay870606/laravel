@@ -361,7 +361,9 @@ class SubcategoriesTableSeeder extends Seeder
             ['category_id' => 88, 'name' => '行李箱'],
         ];
 
+        Schema::disableForeignKeyConstraints();
         DB::table('subcategories')->truncate();
+        Schema::enableForeignKeyConstraints();
 
         foreach ($items as $item) {
             \App\Subcategory::create($item);

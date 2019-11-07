@@ -8,8 +8,8 @@ class Beacon extends Model
 {
     protected $guarded = [];
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsToMany('App\Category');
     }
 }
