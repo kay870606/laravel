@@ -20,6 +20,6 @@ class Category extends Model
 
     public function beacons()
     {
-        return $this->hasMany('App\Beacon');
+        return $this->belongsToMany('App\Beacon', 'category_beacon');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 class CategoryBeaconController extends Controller
@@ -13,7 +14,9 @@ class CategoryBeaconController extends Controller
      */
     public function index()
     {
-        $categories = App\Category::;
+        //$categories = App\Category::has('beacons')->get;
+        $categories = Category::all();
+        return $categories;
     }
 
     /**

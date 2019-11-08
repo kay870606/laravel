@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesBeaconsTable extends Migration
+class CreateCategoryBeaconTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCategoriesBeaconsTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories_beacons', function (Blueprint $table) {
+        Schema::create('category_beacon', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('beacon_id');
@@ -37,6 +37,6 @@ class CreateCategoriesBeaconsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories_beacons');
+        Schema::dropIfExists('category_beacon');
     }
 }
