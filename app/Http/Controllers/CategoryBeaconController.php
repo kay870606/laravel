@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Beacon;
 use App\Category;
+use App\CategoryBeacon;
+use App\Http\Requests\CategoryBeaconRequest;
 use Illuminate\Http\Request;
 
 class CategoryBeaconController extends Controller
@@ -14,9 +17,12 @@ class CategoryBeaconController extends Controller
      */
     public function index()
     {
-        //$categories = App\Category::has('beacons')->get;
-        $categories = Category::all();
-        return $categories;
+        //$categoriesBeacons = Category::has('beacons')->with('beacons')->get();
+        //return DB::table('category_beacon')->get();
+        //return CategoryBeacon::all();
+        $categoriesBeacons = CategoryBeacon::with('category')->with('beacon')->get();
+        //return $categoriesBeacons;
+        return view('categories-beacons.index', compact('categoriesBeacons'));
     }
 
     /**
@@ -26,62 +32,74 @@ class CategoryBeaconController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        $beacons = Beacon::all();
+        return view('categories-beacons.create', compact('categories', 'beacons'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryBeaconRequest $request)
     {
-        //
+        $validated = $request->validated();
+        CategoryBeacon::create($validated);
+        return redirect('/category_beacon');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param CategoryBeacon $categoryBeacon
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(CategoryBeacon $categoryBeacon)
     {
-        //
+        //return $id;
+        //$categoryBeacon= CategoryBeacon::findOrFail($id);
+        //return $categoryBeacon;
+        return view('categories-beacons.show', compact('categoryBeacon'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param CategoryBeacon $categoryBeacon
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(CategoryBeacon $categoryBeacon)
     {
-        //
+        $categories = Category::all();
+        $beacons = Beacon::all();
+        return view('categories-beacons.edit', compact('categories', 'beacons', 'categoryBeacon'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param CategoryBeaconRequest $request
+     * @param CategoryBeacon $categoryBeacon
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryBeaconRequest $request, CategoryBeacon $categoryBeacon)
     {
-        //
+        $validated = $request->validated();
+        $categoryBeacon->update($validated);
+        return redirect('/category_beacon');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param CategoryBeacon $categoryBeacon
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CategoryBeacon $categoryBeacon)
     {
-        //
+        $categoryBeacon->delete();
+        return redirect('/category_beacon');
     }
 }

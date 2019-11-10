@@ -10,6 +10,6 @@ class Beacon extends Model
 
     public function categories()
     {
-        return $this->belongsToMany('App\Category','category_beacon');
+        return $this->belongsToMany('App\Category', 'category_beacon');
     }
 }

@@ -19,8 +19,16 @@ Route::resource('categories', 'CategoryController');
 Route::resource('subcategories', 'SubcategoryController');
 Route::resource('beacons', 'BeaconController');
 
-//Route::get('categories/{category}/beacons', 'CategoryBeaconController@index');
-Route::resource('categoriesBeacons', 'CategoryBeaconController');
+//Route::get('categories', 'CategoryController@index');
+//Route::get('categories_beacons/{category_beacon}', 'CategoryBeaconController@show');
+Route::resource('category_beacon', 'CategoryBeaconController');
+
+/*Route::prefix('categories')->group(function () {
+    Route::resource('/', 'CategoryController');
+    //Route::resource('/beacons', 'CategoryBeaconController');
+    Route::get('/beacons', 'CategoryBeaconController@index');
+    Route::get('/beacons/{categoryBeacon}', 'CategoryBeaconController@show');
+});*/
 
 Route::get('/test', function () {
     //Storage::put('file.txt', 'Contents');

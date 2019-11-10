@@ -13,10 +13,10 @@ class Category extends Model
         return $this->hasMany('App\Subcategory');
     }
 
-    public function addSubcategory($subcategory)
+    /*public function addSubcategory($subcategory)
     {
         $this->subcategories()->create($subcategory);
-    }
+    }*/
 
     public function beacons()
     {

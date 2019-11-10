@@ -75,7 +75,7 @@ class SubcategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
+     * @param Subcategory $subcategory
      * @return \Illuminate\Http\Response
      */
     public function edit(Subcategory $subcategory)
@@ -102,8 +102,9 @@ class SubcategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param Subcategory $subcategory
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Subcategory $subcategory)
     {
