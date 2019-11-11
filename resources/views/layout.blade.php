@@ -36,6 +36,9 @@
             <a class="link is-info" href="/category_beacon">分類與Beacon</a>
         </p>
         <p class="level-item has-text-centered">
+            <a class="link is-info" href="/activities">活動</a>
+        </p>
+        <p class="level-item has-text-centered">
             <a class="link is-info" href="/api/categories">api分類</a>
         </p>
     </nav>
