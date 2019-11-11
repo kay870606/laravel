@@ -40,14 +40,10 @@ class ActivityController extends Controller
     public function store(ActivityRequest $request)
     {
         $path = $request->image->store('activities/images');
-        //$validated = $request->validated();
-
         Activity::create(
-            ['name' => $request->name],
-            ['image_path' => $path]
+            ['name' => $request->name, 'image_path' => $path]
         );
-
-        //return redirect('/activities');
+        return redirect('/activities');
     }
 
     /**
