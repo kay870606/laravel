@@ -3,28 +3,25 @@
 @section('content')
     <h1 class="title">Edit Category</h1>
 
-    <form method="POST" action="/categories/{{ $category->id }}" style="margin-bottom: 1em;">
+    <form method="POST" action="/activities/{{ $activity->id }}" style="margin-bottom: 1em;">
         @method('PATCH')
         @csrf
 
         <div class="field">
-            <label class="label">Number</label>
+            <label class="label">Name</label>
             <div class="control">
-                <input type="text" name="number" class="input" placeholder="Number" value="{{ $category->number }}"
+                <input type="text" name="name" class="input" placeholder="Name" value="{{ $activity->name }}"
                        required>
             </div>
         </div>
 
         <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
-                <input type="text" name="name" class="input" placeholder="Name" value="{{ $category->name }}" required>
-            </div>
+            <input type="file" name="image">
         </div>
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Update Category</button>
+                <button type="submit" class="button is-link">Update Activity</button>
             </div>
         </div>
 
@@ -32,13 +29,13 @@
 
     @include ('errors')
 
-    <form method="POST" action="/categories/{{ $category->id }}">
+    <form method="POST" action="/activities/{{ $activity->id }}">
         @method('DELETE')
         @csrf
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button">Delete Category</button>
+                <button type="submit" class="button">Delete Activity</button>
             </div>
         </div>
     </form>

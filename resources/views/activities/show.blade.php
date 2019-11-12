@@ -8,9 +8,11 @@
     @endcan --}}
 
     <div>
-        {{--<p>{{ $activity->number }}</p>
+        <p>{{ $activity->name }}</p>
 
-        <p>{{ $activity->name }}</p>--}}
+        <figure class="image is-128x128">
+            <img src="{{ asset( 'storage/' . $activity->image_path ) }}">
+        </figure>
 
         <p>
             <a href="/activities/{{ $activity->id }}/edit">Edit</a>

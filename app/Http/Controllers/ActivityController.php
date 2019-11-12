@@ -77,8 +77,10 @@ class ActivityController extends Controller
      */
     public function update(ActivityRequest $request, Activity $activity)
     {
-        $validated = $request->validated();
-        $activity->update($validated);
+        $path = $request->image->store('activities/images');
+        $activity->update(
+            ['name' => $request->name, 'image_path' => $path]
+        );
 
         return redirect('/activities');
     }
