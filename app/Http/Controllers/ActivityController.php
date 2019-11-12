@@ -90,6 +90,7 @@ class ActivityController extends Controller
      *
      * @param \App\Activity $activity
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Activity $activity)
     {

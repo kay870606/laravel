@@ -15,7 +15,7 @@
         </div>
 
         <div class="field">
-            <input type="file" name="image">
+            <input type="file" name="image" required>
         </div>
 
         <div class="field">

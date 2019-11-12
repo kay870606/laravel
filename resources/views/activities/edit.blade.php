@@ -1,9 +1,9 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Edit Category</h1>
+    <h1 class="title">Edit Activity</h1>
 
-    <form method="POST" action="/activities/{{ $activity->id }}" style="margin-bottom: 1em;">
+    <form method="POST" action="/activities/{{ $activity->id }}" enctype="multipart/form-data" style="margin-bottom: 1em;">
         @method('PATCH')
         @csrf
 
@@ -16,7 +16,7 @@
         </div>
 
         <div class="field">
-            <input type="file" name="image">
+            <input type="file" name="image" required>
         </div>
 
         <div class="field">
