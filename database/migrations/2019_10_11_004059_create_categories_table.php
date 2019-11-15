@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->unsignedInteger('number')->unique();
             $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

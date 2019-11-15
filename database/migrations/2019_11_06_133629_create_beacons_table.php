@@ -18,6 +18,7 @@ class CreateBeaconsTable extends Migration
             $table->string('name');
             $table->string('mac');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

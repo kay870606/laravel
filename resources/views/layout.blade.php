@@ -33,7 +33,7 @@
             <a class="link is-info" href="/beacons">Beacon</a>
         </p>
         <p class="level-item has-text-centered">
-            <a class="link is-info" href="/category_beacon">分類與Beacon</a>
+            <a class="link is-info" href="/category-beacon">分類與Beacon</a>
         </p>
         <p class="level-item has-text-centered">
             <a class="link is-info" href="/activities">活動</a>

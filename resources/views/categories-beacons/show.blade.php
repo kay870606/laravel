@@ -15,7 +15,7 @@
         <p>{{ $categoryBeacon->beacon->name }}</p>
 
         <p>
-            <a href="/category_beacon/{{ $categoryBeacon->id }}/edit">Edit</a>
+            <a href="/category-beacon/{{ $categoryBeacon->id }}/edit">Edit</a>
         </p>
     </div>
 
