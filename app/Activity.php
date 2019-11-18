@@ -17,9 +17,4 @@ class Activity extends Model
     {
         return asset('storage/' . $this->path);
     }
-
-    public  function getStorePath()
-    {
-        return 'activities/images/' . date('Y-m-d');
-    }
 }

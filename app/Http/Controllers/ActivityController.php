@@ -40,8 +40,7 @@ class ActivityController extends Controller
      */
     public function store(ActivityRequest $request)
     {
-        //$path = $request->image->store('activities/images');
-        $path = $request->image->store(getStorePath());
+        $path = $request->image->store('activities/images');
         Activity::create(
             ['name' => $request->name, 'path' => $path]
         );
@@ -98,5 +97,10 @@ class ActivityController extends Controller
     {
         $activity->delete();
         return redirect('/activities');
+    }
+
+    public  function getStoreImagePath()
+    {
+        return 'activities/images/' . date('Y-m-d');
     }
 }
