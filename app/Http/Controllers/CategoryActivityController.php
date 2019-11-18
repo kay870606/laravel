@@ -16,6 +16,7 @@ class CategoryActivityController extends Controller
     {
         $categoriesActivity = CategoryActivity::all();
 
+        return $categoriesActivity;
         //return view('categories.index', compact('categories'));
     }
 

@@ -23,7 +23,7 @@ class CategoryBeaconController extends Controller
         //return CategoryBeacon::all();
         $categoriesBeacons = CategoryBeacon::with('category')->with('beacon')->get();
         //return $categoriesBeacons;
-        return view('categories-beacons.index', compact('categoriesBeacons'));
+        return view('category-beacon.index', compact('categoriesBeacons'));
     }
 
     /**
@@ -35,7 +35,7 @@ class CategoryBeaconController extends Controller
     {
         $categories = Category::all();
         $beacons = Beacon::all();
-        return view('categories-beacons.create', compact('categories', 'beacons'));
+        return view('category-beacon.create', compact('categories', 'beacons'));
     }
 
     /**
@@ -62,7 +62,7 @@ class CategoryBeaconController extends Controller
         //return $id;
         //$categoryBeacon= CategoryBeacon::findOrFail($id);
         //return $categoryBeacon;
-        return view('categories-beacons.show', compact('categoryBeacon'));
+        return view('category-beacon.show', compact('categoryBeacon'));
     }
 
     /**
@@ -75,7 +75,7 @@ class CategoryBeaconController extends Controller
     {
         $categories = Category::all();
         $beacons = Beacon::all();
-        return view('categories-beacons.edit', compact('categories', 'beacons', 'categoryBeacon'));
+        return view('category-beacon.edit', compact('categories', 'beacons', 'categoryBeacon'));
     }
 
     /**

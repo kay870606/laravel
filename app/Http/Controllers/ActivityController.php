@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Activity;
 use App\Http\Requests\ActivityRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 
 class ActivityController extends Controller
@@ -12,7 +13,7 @@ class ActivityController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -24,7 +25,7 @@ class ActivityController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -34,12 +35,13 @@ class ActivityController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param ActivityRequest $request
+     * @return Response
      */
     public function store(ActivityRequest $request)
     {
-        $path = $request->image->store('activities/images');
+        //$path = $request->image->store('activities/images');
+        $path = $request->image->store(getStorePath());
         Activity::create(
             ['name' => $request->name, 'path' => $path]
         );
@@ -49,8 +51,8 @@ class ActivityController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Activity $activity
-     * @return \Illuminate\Http\Response
+     * @param Activity $activity
+     * @return Response
      */
     public function show(Activity $activity)
     {
@@ -60,8 +62,8 @@ class ActivityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Activity $activity
-     * @return \Illuminate\Http\Response
+     * @param Activity $activity
+     * @return Response
      */
     public function edit(Activity $activity)
     {
@@ -71,9 +73,9 @@ class ActivityController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Activity $activity
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Activity $activity
+     * @return Response
      */
     public function update(ActivityRequest $request, Activity $activity)
     {
@@ -88,8 +90,8 @@ class ActivityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Activity $activity
-     * @return \Illuminate\Http\Response
+     * @param Activity $activity
+     * @return Response
      * @throws \Exception
      */
     public function destroy(Activity $activity)
