@@ -25,4 +25,9 @@ class Category extends Model
     {
         return $this->belongsToMany('App\Beacon', 'category_beacon');
     }
+
+    public function categoryActivities()
+    {
+        return $this->hasMany('App\CategoryActivity');
+    }
 }

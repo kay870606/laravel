@@ -3,6 +3,7 @@
 @section('content')
     <h1 class="title">Categories</h1>
 
+
     <form method="GET" action="/categories/create">
         @csrf
 

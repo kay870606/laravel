@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Category;
+use App\Activity;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CategoryCollection;
 use Illuminate\Http\Request;
+use App\Http\Resources\ActivityCollection;
 
-class CategoryController extends Controller
+class ActivityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +16,16 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $activities = Activity::all();
 
-        return new CategoryCollection(Category::all());
+        return new ActivityCollection(Activity::all());
+        //return $activities;
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -35,19 +36,20 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param $id
-     * @return void
+     * @param int $id
+     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $category = Category::where('id', $id)->with('subcategories')->with('beacons')->first();
-        return $category;
+        $activity = Activity::where('id', $id)->first();
+        //$activity->url = asset('storage/' . $activity->image_path);
+        return $activity;
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param \Illuminate\Http\Request $request
      * @param int $id
      * @return \Illuminate\Http\Response
      */

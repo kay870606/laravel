@@ -7,16 +7,22 @@
         <a href="">Update</a>
     @endcan --}}
 
-    <div>
+    <div class="content">
         <p>{{ $subcategory->category->number }}</p>
 
         <p>{{ $subcategory->category->name }}</p>
 
         <p>{{ $subcategory->name }}</p>
 
-        <p>
-            <a href="/subcategories/{{ $subcategory->id }}/edit">Edit</a>
-        </p>
+        <form method="GET" action="/subcategories/{{ $subcategory->id }}/edit">
+            @csrf
+
+            <div class="field">
+                <div class="control">
+                    <button type="submit" class="button is-link">Edit</button>
+                </div>
+            </div>
+        </form>
     </div>
 
 @endsection

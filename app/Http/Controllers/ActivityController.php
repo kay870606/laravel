@@ -41,7 +41,7 @@ class ActivityController extends Controller
     {
         $path = $request->image->store('activities/images');
         Activity::create(
-            ['name' => $request->name, 'image_path' => $path]
+            ['name' => $request->name, 'path' => $path]
         );
         return redirect('/activities');
     }
@@ -79,7 +79,7 @@ class ActivityController extends Controller
     {
         $path = $request->image->store('activities/images');
         $activity->update(
-            ['name' => $request->name, 'image_path' => $path]
+            ['name' => $request->name, 'path' => $path]
         );
 
         return redirect('/activities');

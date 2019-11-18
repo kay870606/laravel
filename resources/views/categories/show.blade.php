@@ -3,18 +3,20 @@
 @section('content')
     <h1 class="title">{{ $category->id }}</h1>
 
-    {{-- @can('update', $project)
-        <a href="">Update</a>
-    @endcan --}}
-
-    <div>
+    <div class="content">
         <p>{{ $category->number }}</p>
 
         <p>{{ $category->name }}</p>
 
-        <p>
-            <a href="/categories/{{ $category->id }}/edit">Edit</a>
-        </p>
+        <form method="GET" action="/categories/{{ $category->id }}/edit">
+            @csrf
+
+            <div class="field">
+                <div class="control">
+                    <button type="submit" class="button is-link">Edit</button>
+                </div>
+            </div>
+        </form>
     </div>
 
 @endsection

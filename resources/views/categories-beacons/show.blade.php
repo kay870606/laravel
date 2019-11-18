@@ -7,16 +7,22 @@
         <a href="">Update</a>
     @endcan --}}
 
-    <div>
+    <div class="content">
         <p>{{ $categoryBeacon->category->number }}</p>
 
         <p>{{ $categoryBeacon->category->name }}</p>
 
         <p>{{ $categoryBeacon->beacon->name }}</p>
 
-        <p>
-            <a href="/category-beacon/{{ $categoryBeacon->id }}/edit">Edit</a>
-        </p>
+        <form method="GET" action="/category-beacon/{{ $categoryBeacon->id }}/edit">
+            @csrf
+
+            <div class="field">
+                <div class="control">
+                    <button type="submit" class="button is-link">Edit</button>
+                </div>
+            </div>
+        </form>
     </div>
 
 @endsection

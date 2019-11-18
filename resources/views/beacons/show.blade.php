@@ -7,14 +7,20 @@
         <a href="">Update</a>
     @endcan --}}
 
-    <div>
+    <div class="content">
         <p>{{ $beacon->name }}</p>
 
         <p>{{ $beacon->mac }}</p>
 
-        <p>
-            <a href="/beacons/{{ $beacon->id }}/edit">Edit</a>
-        </p>
+        <form method="GET" action="/beacons/{{ $beacon->id }}/edit">
+            @csrf
+
+            <div class="field">
+                <div class="control">
+                    <button type="submit" class="button is-link">Edit</button>
+                </div>
+            </div>
+        </form>
     </div>
 
 @endsection

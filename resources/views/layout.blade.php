@@ -1,22 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
-    <style>
-        .is-complete {
-            text-decoration: line-through;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laravel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-
-{{--<div class="box">
-    <a href="/">首頁</a>
-    <a href="/categories">分類</a>
-    <a href="/subcategories">小分類</a>
-    <a href="/api/categories">api分類</a>
-</div>--}}
 
 <div class="container">
     <nav class="level">
@@ -43,7 +34,6 @@
         </p>
     </nav>
 </div>
-
 
 <div class="container">
     @yield('content')

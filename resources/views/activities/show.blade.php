@@ -7,16 +7,22 @@
         <a href="">Update</a>
     @endcan --}}
 
-    <div>
+    <div class="content">
         <p>{{ $activity->name }}</p>
 
         <figure class="image is-128x128">
-            <img src="{{ asset( 'storage/' . $activity->image_path ) }}">
+            <img src="{{  $activity->url  }}">
         </figure>
 
-        <p>
-            <a href="/activities/{{ $activity->id }}/edit">Edit</a>
-        </p>
+        <form method="GET" action="/activities/{{ $activity->id }}/edit">
+            @csrf
+
+            <div class="field">
+                <div class="control">
+                    <button type="submit" class="button is-link">Edit</button>
+                </div>
+            </div>
+        </form>
     </div>
 
 @endsection

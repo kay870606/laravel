@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Edit Subcategory</h1>
+    <h1 class="title">Edit Category Beacon</h1>
 
     <form method="POST" action="/category-beacon/{{ $categoryBeacon->id }}" style="margin-bottom: 1em;">
         @method('PATCH')

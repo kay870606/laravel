@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CategoryBeacon extends pivot
 {
+    use SoftDeletes;
+
     protected $guarded = [];
 
     public function category()
