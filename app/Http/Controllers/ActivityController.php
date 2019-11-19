@@ -40,7 +40,7 @@ class ActivityController extends Controller
      */
     public function store(ActivityRequest $request)
     {
-        $path = $request->image->store(getImagePath);
+        $path = $request->image->store($this->getImagePath());
         Activity::create(
             ['name' => $request->name, 'path' => $path]
         );
@@ -78,7 +78,7 @@ class ActivityController extends Controller
      */
     public function update(ActivityRequest $request, Activity $activity)
     {
-        $path = $request->image->store('activities/images');
+        $path = $request->image->store($this->getImagePath());
         $activity->update(
             ['name' => $request->name, 'path' => $path]
         );

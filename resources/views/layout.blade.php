@@ -30,10 +30,13 @@
             <a class="link is-info" href="/activities">活動</a>
         </p>
         <p class="level-item has-text-centered">
-            <a class="link is-info" href="/category-activity">分類與活動</a>
+            <a class="link is-info" href="/category-activities">分類與活動</a>
         </p>
         <p class="level-item has-text-centered">
             <a class="link is-info" href="/api/categories">api分類</a>
+        </p>
+        <p class="level-item has-text-centered">
+            <a class="link is-info" href="/api/activities">api活動</a>
         </p>
     </nav>
 </div>

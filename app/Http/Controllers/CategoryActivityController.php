@@ -14,10 +14,9 @@ class CategoryActivityController extends Controller
      */
     public function index()
     {
-        $categoriesActivity = CategoryActivity::all();
+        $categoriesActivities = CategoryActivity::all();
 
-        return $categoriesActivity;
-        //return view('categories.index', compact('categories'));
+        return view('category-activities.index', compact('categoriesActivities'));
     }
 
     /**
