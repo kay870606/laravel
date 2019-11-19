@@ -6,7 +6,6 @@ use App\Activity;
 use App\Http\Requests\ActivityRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Storage;
 
 class ActivityController extends Controller
 {
@@ -15,6 +14,7 @@ class ActivityController extends Controller
      *
      * @return Response
      */
+
     public function index()
     {
         $activities = Activity::all();
@@ -40,7 +40,7 @@ class ActivityController extends Controller
      */
     public function store(ActivityRequest $request)
     {
-        $path = $request->image->store('activities/images');
+        $path = $request->image->store(getImagePath);
         Activity::create(
             ['name' => $request->name, 'path' => $path]
         );
@@ -99,7 +99,7 @@ class ActivityController extends Controller
         return redirect('/activities');
     }
 
-    public  function getStoreImagePath()
+    public function getImagePath()
     {
         return 'activities/images/' . date('Y-m-d');
     }
