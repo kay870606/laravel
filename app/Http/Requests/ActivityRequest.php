@@ -23,9 +23,23 @@ class ActivityRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        switch ($this->method()) {
+            case 'POST':
+                return [
+                    'name' => 'required',
+                    'image' => 'required|image|file'
+                ];
+                break;
+            default:
+                return [
+                    'name' => 'required',
+                    'image' => 'image|file'
+                ];
+                break;
+        }
+        /*return [
             'name' => 'required',
             'image' => 'required|image|file'
-        ];
+        ];*/
     }
 }

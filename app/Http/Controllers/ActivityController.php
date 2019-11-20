@@ -78,10 +78,16 @@ class ActivityController extends Controller
      */
     public function update(ActivityRequest $request, Activity $activity)
     {
-        $path = $request->image->store($this->getImagePath());
-        $activity->update(
-            ['name' => $request->name, 'path' => $path]
-        );
+        if ($request->hasFile('image')) {
+            $path = $request->image->store($this->getImagePath());
+            $activity->update(
+                ['name' => $request->name, 'path' => $path]
+            );
+        } else {
+            $activity->update(
+                ['name' => $request->name]
+            );
+        }
 
         return redirect('/activities');
     }
