@@ -23,7 +23,7 @@ Route::resource('activities', 'ActivityController');
 //Route::get('categories_beacons/{category_beacon}', 'CategoryBeaconController@show');
 //Route::resource('category_beacon', 'CategoryBeaconController');
 
-Route::resource('category-beacon', 'CategoryBeaconController');
+Route::resource('category-beacons', 'CategoryBeaconController');
 Route::resource('category-activities', 'CategoryActivityController');
 /*Route::prefix('categories')->group(function () {
     Route::resource('/', 'CategoryController');

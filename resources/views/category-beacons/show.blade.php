@@ -14,7 +14,7 @@
 
         <p>{{ $categoryBeacon->beacon->name }}</p>
 
-        <form method="GET" action="/category-beacon/{{ $categoryBeacon->id }}/edit">
+        <form method="GET" action="/category-beacons/{{ $categoryBeacon->id }}/edit">
             @csrf
 
             <div class="field">

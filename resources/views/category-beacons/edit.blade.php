@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="title">Edit Category Beacon</h1>
 
-    <form method="POST" action="/category-beacon/{{ $categoryBeacon->id }}" style="margin-bottom: 1em;">
+    <form method="POST" action="/category-beacons/{{ $categoryBeacon->id }}" style="margin-bottom: 1em;">
         @method('PATCH')
         @csrf
 
@@ -39,7 +39,7 @@
 
     @include ('errors')
 
-    <form method="POST" action="/category-beacon/{{ $categoryBeacon->id }}">
+    <form method="POST" action="/category-beacons/{{ $categoryBeacon->id }}">
         @method('DELETE')
         @csrf
 

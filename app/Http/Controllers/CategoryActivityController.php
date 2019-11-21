@@ -14,9 +14,9 @@ class CategoryActivityController extends Controller
      */
     public function index()
     {
-        $categoriesActivities = CategoryActivity::all();
+        $categoryActivities = CategoryActivity::all();
 
-        return view('category-activities.index', compact('categoriesActivities'));
+        return view('category-activities.index', compact('categoryActivities'));
     }
 
     /**
@@ -26,7 +26,7 @@ class CategoryActivityController extends Controller
      */
     public function create()
     {
-        //
+        return view('category-activities.create');
     }
 
     /**

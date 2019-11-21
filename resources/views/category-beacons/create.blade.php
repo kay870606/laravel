@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="title">Create a New Category Beacon</h1>
 
-    <form method="POST" action="/category-beacon">
+    <form method="POST" action="/category-beacons">
         @csrf
 
         <div class="field">

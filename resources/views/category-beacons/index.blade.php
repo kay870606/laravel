@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="title">Category Beacon</h1>
 
-    <form method="GET" action="/category-beacon/create">
+    <form method="GET" action="/category-beacons/create">
         @csrf
 
         <div class="field">
@@ -15,9 +15,9 @@
 
     <div class="content">
         <ol>
-            @foreach ($categoriesBeacons as $categoryBeacon)
+            @foreach ($categoryBeacons as $categoryBeacon)
                 <li>
-                    <a href="/category-beacon/{{ $categoryBeacon->id }}">
+                    <a href="/category-beacons/{{ $categoryBeacon->id }}">
                         {{ $categoryBeacon->category->number .'  '.$categoryBeacon->beacon->name }}
                     </a>
                 </li>

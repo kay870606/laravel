@@ -18,12 +18,12 @@ class CategoryBeaconController extends Controller
      */
     public function index()
     {
-        //$categoriesBeacons = Category::has('beacons')->with('beacons')->get();
+        //$categoryBeacons = Category::has('beacons')->with('beacons')->get();
         //return DB::table('category_beacon')->get();
         //return CategoryBeacon::all();
-        $categoriesBeacons = CategoryBeacon::with('category')->with('beacon')->get();
-        //return $categoriesBeacons;
-        return view('category-beacon.index', compact('categoriesBeacons'));
+        $categoryBeacons = CategoryBeacon::with('category')->with('beacon')->get();
+        //return $categoryBeacons;
+        return view('category-beacons.index', compact('categoryBeacons'));
     }
 
     /**
@@ -35,7 +35,7 @@ class CategoryBeaconController extends Controller
     {
         $categories = Category::all();
         $beacons = Beacon::all();
-        return view('category-beacon.create', compact('categories', 'beacons'));
+        return view('category-beacons.create', compact('categories', 'beacons'));
     }
 
     /**
@@ -48,7 +48,7 @@ class CategoryBeaconController extends Controller
     {
         $validated = $request->validated();
         CategoryBeacon::create($validated);
-        return redirect('/category-beacon');
+        return redirect('/category-beacons');
     }
 
     /**
@@ -62,7 +62,7 @@ class CategoryBeaconController extends Controller
         //return $id;
         //$categoryBeacon= CategoryBeacon::findOrFail($id);
         //return $categoryBeacon;
-        return view('category-beacon.show', compact('categoryBeacon'));
+        return view('category-beacons.show', compact('categoryBeacon'));
     }
 
     /**
@@ -75,7 +75,7 @@ class CategoryBeaconController extends Controller
     {
         $categories = Category::all();
         $beacons = Beacon::all();
-        return view('category-beacon.edit', compact('categories', 'beacons', 'categoryBeacon'));
+        return view('category-beacons.edit', compact('categories', 'beacons', 'categoryBeacon'));
     }
 
     /**
@@ -89,7 +89,7 @@ class CategoryBeaconController extends Controller
     {
         $validated = $request->validated();
         $categoryBeacon->update($validated);
-        return redirect('/category-beacon');
+        return redirect('/category-beacons');
     }
 
     /**
@@ -101,6 +101,6 @@ class CategoryBeaconController extends Controller
     public function destroy(CategoryBeacon $categoryBeacon)
     {
         $categoryBeacon->delete();
-        return redirect('/category-beacon');
+        return redirect('/category-beacons');
     }
 }
