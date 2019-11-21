@@ -10,7 +10,7 @@
         <div class="field">
             <label class="label">Name</label>
             <div class="control">
-                <input type="text" name="name" class="input" placeholder="Name" value="{{ $beacon->name }}"
+                <input type="text" name="name" class="input" value="{{ $beacon->name }}"
                        required>
             </div>
         </div>
@@ -18,7 +18,7 @@
         <div class="field">
             <label class="label">mac</label>
             <div class="control">
-                <input type="text" name="mac" class="input" placeholder="Name" value="{{ $beacon->mac }}" required>
+                <input type="text" name="mac" class="input" value="{{ $beacon->mac }}" required>
             </div>
         </div>
 

@@ -1,9 +1,10 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Edit Subcategory</h1>
+    <h1 class="title">Edit Category Activity</h1>
 
-    <form method="POST" action="/subcategories/{{ $subcategory->id }}" style="margin-bottom: 1em;">
+    <form method="POST" action="/category-activities/{{ $categoryActivity->id }}" enctype="multipart/form-data"
+          style="margin-bottom: 1em;">
         @method('PATCH')
         @csrf
 
@@ -21,26 +22,32 @@
         <div class="field">
             <label class="label">Name</label>
             <div class="control">
-                <input type="text" name="name" class="input"  value="{{ $subcategory->name }}" required>
+                <input type="text" name="name" class="input" value="{{ $categoryActivity->name }}"
+                       required>
             </div>
         </div>
 
         <div class="field">
+            <input type="file" name="image">
+        </div>
+
+        <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Update Subcategory</button>
+                <button type="submit" class="button is-link">Update Category Activity</button>
             </div>
         </div>
+
     </form>
 
     @include ('errors')
 
-    <form method="POST" action="/subcategories/{{ $subcategory->id }}">
+    <form method="POST" action="/category-activities/{{ $categoryActivity->id }}">
         @method('DELETE')
         @csrf
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button">Delete Subcategory</button>
+                <button type="submit" class="button">Delete Category Activity</button>
             </div>
         </div>
     </form>

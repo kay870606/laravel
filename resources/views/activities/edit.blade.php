@@ -11,7 +11,7 @@
         <div class="field">
             <label class="label">Name</label>
             <div class="control">
-                <input type="text" name="name" class="input" placeholder="Name" value="{{ $activity->name }}" required>
+                <input type="text" name="name" class="input" value="{{ $activity->name }}" required>
             </div>
         </div>
 

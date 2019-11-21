@@ -10,7 +10,7 @@
             <label class="label">Beacon number</label>
 
             <div class="control">
-                <input type="text" name="name" placeholder="Beacon number" class="input" required>
+                <input type="text" name="name" class="input" required>
             </div>
         </div>
 
@@ -18,7 +18,7 @@
             <label class="label">Beacon mac</label>
 
             <div class="control">
-                <input type="text" name="mac" class="input" placeholder="mac" required>
+                <input type="text" name="mac" class="input" required>
             </div>
         </div>
 

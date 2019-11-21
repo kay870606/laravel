@@ -10,7 +10,7 @@
             <label class="label">Activity name</label>
 
             <div class="control">
-                <input type="text" name="name" placeholder="Activity name" class="input" required>
+                <input type="text" name="name" class="input" required>
             </div>
         </div>
 

@@ -10,7 +10,7 @@
             <label class="label">Category number</label>
 
             <div class="control">
-                <input type="text" name="number" placeholder="Category number" class="input" required>
+                <input type="text" name="number" class="input" required>
             </div>
         </div>
 
@@ -18,7 +18,7 @@
             <label class="label" >Category name</label>
 
             <div class="control">
-                <input type="text" name="name" class="input" placeholder="Name" required>
+                <input type="text" name="name" class="input" required>
             </div>
         </div>
 

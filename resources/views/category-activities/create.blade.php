@@ -1,9 +1,9 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Create a New Subcategory</h1>
+    <h1 class="title">Create a New Category Activity</h1>
 
-    <form method="POST" action="/subcategories">
+    <form method="POST" action="/category-activities" enctype="multipart/form-data">
         @csrf
 
         <div class="field">
@@ -18,15 +18,20 @@
         </div>
 
         <div class="field">
-            <label class="label">Subcategory name</label>
+            <label class="label">Category Activity name</label>
+
             <div class="control">
                 <input type="text" name="name" class="input" required>
             </div>
         </div>
 
         <div class="field">
+            <input type="file" name="image" required>
+        </div>
+
+        <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Create Subcategory</button>
+                <button type="submit" class="button is-link">Create Category Activity</button>
             </div>
         </div>
 
