@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CategoryBeaconTableSeeder extends Seeder
+class CategoryBeaconsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class CategoryBeaconTableSeeder extends Seeder
     public function run()
     {
         Schema::disableForeignKeyConstraints();
-        DB::table('category_beacon')->truncate();
+        DB::table('category_beacons')->truncate();
         Schema::enableForeignKeyConstraints();
 
         for ($i = 1, $j = 14; $i <= 45, $j <= 42; $i++, $j += 2) {

@@ -23,7 +23,7 @@ class Category extends Model
 
     public function beacons()
     {
-        return $this->belongsToMany('App\Beacon', 'category_beacon');
+        return $this->hasManyThrough('App\Beacon', 'App\CategoryBeacon');
     }
 
     public function categoryActivities()
