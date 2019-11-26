@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->text('specification');
             $table->string('path');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('subcategory_id')
                 ->references('id')
