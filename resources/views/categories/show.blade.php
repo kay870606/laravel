@@ -1,22 +1,29 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">{{ $category->id }}</h1>
+    <h1 class="title">Show</h1>
 
-    <div class="content">
-        <p>{{ $category->number }}</p>
+    <form method="GET" action="/categories/{{ $category->id }}/edit">
+        @csrf
 
-        <p>{{ $category->name }}</p>
-
-        <form method="GET" action="/categories/{{ $category->id }}/edit">
-            @csrf
-
-            <div class="field">
-                <div class="control">
-                    <button type="submit" class="button is-link">Edit</button>
-                </div>
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-link">Edit</button>
             </div>
-        </form>
+        </div>
+    </form>
+
+    <div class="table-container">
+        <table class="table">
+            <tbody>
+            <th>Number</th>
+            <td>{{ $category->number }}</td>
+            </tbody>
+            <tbody>
+            <th>Name</th>
+            <td>{{ $category->name }}</td>
+            </tbody>
+        </table>
     </div>
 
 @endsection

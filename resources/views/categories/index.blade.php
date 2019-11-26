@@ -14,7 +14,29 @@
         </div>
     </form>
 
-    <div class="content">
+    <div class="table-container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Number</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach ($categories as $category)
+                <tr>
+                    <th><a href="/categories/{{ $category->id }}">
+                            {{$category->id}}</a></th>
+                    <td>{{$category->number}}</td>
+                    <td>{{$category->name}}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
+
+    {{--<div class="content">
         <ol type="1">
             @foreach ($categories as $category)
                 <li>
@@ -24,6 +46,6 @@
                 </li>
             @endforeach
         </ol>
-    </div>
+    </div>--}}
 
 @endsection

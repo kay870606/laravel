@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Edit Category</h1>
+    <h1 class="title">Edit</h1>
 
     <form method="POST" action="/categories/{{ $category->id }}" style="margin-bottom: 1em;">
         @method('PATCH')
@@ -24,7 +24,7 @@
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Update Category</button>
+                <button type="submit" class="button is-link">Update</button>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button">Delete Category</button>
+                <button type="submit" class="button">Delete</button>
             </div>
         </div>
     </form>
