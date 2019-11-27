@@ -16,9 +16,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('id')->get();
 
-        return new CategoryCollection(Category::all());
+        return new CategoryCollection($categories);
     }
 
     /**

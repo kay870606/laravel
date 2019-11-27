@@ -17,7 +17,7 @@ class ActivityController extends Controller
 
     public function index()
     {
-        $activities = Activity::all();
+        $activities = Activity::orderBy('id')->get();
 
         return view('activities.index', compact('activities'));
     }

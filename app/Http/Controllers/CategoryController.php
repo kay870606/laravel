@@ -11,13 +11,12 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return  \Illuminate\Http\Response
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('id')->get();
 
-        //return $categories;
         //return $categories;
         return view('categories.index', compact('categories'));
     }
@@ -105,7 +104,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param Category $category
      * @return \Illuminate\Http\Response
      * @throws \Exception
      */

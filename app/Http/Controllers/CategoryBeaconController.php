@@ -21,7 +21,7 @@ class CategoryBeaconController extends Controller
         //$categoryBeacons = Category::has('beacons')->with('beacons')->get();
         //return DB::table('category_beacon')->get();
         //return CategoryBeacon::all();
-        $categoryBeacons = CategoryBeacon::with('category')->with('beacon')->get();
+        $categoryBeacons = CategoryBeacon::with('category')->with('beacon')->orderBy('id')->get();
         //return $categoryBeacons;
         return view('category-beacons.index', compact('categoryBeacons'));
     }

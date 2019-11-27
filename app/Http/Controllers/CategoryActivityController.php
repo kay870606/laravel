@@ -17,7 +17,7 @@ class CategoryActivityController extends Controller
      */
     public function index()
     {
-        $categoryActivities = CategoryActivity::all();
+        $categoryActivities = CategoryActivity::orderBy('id')->get();
 
         return view('category-activities.index', compact('categoryActivities'));
     }

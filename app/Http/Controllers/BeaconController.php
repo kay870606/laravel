@@ -15,7 +15,7 @@ class BeaconController extends Controller
      */
     public function index()
     {
-        $beacons = Beacon::all();
+        $beacons = Beacon::orderBy('id')->get();
 
         return view('beacons.index', compact('beacons'));
     }
