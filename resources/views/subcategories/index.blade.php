@@ -13,16 +13,27 @@
         </div>
     </form>
 
-    <div class="content">
-        <ol>
+    <div class="table-container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category Number</th>
+                <th>Category Name</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
             @foreach ($subcategories as $subcategory)
-                <li>
-                    <a href="/subcategories/{{ $subcategory->id }}">
-                        {{ $subcategory->category->number .'  '.$subcategory->name }}
-                    </a>
-                </li>
+                <tr>
+                    <th><a href="/subcategories/{{ $subcategory->id }}">{{$subcategory->id}}</a></th>
+                    <td>{{$subcategory->category->number}}</td>
+                    <td>{{$subcategory->category->name}}</td>
+                    <td>{{$subcategory->name}}</td>
+                </tr>
             @endforeach
-        </ol>
+            </tbody>
+        </table>
     </div>
 
 @endsection

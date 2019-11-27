@@ -18,11 +18,7 @@ class CategoryBeaconController extends Controller
      */
     public function index()
     {
-        //$categoryBeacons = Category::has('beacons')->with('beacons')->get();
-        //return DB::table('category_beacon')->get();
-        //return CategoryBeacon::all();
         $categoryBeacons = CategoryBeacon::with('category')->with('beacon')->orderBy('id')->get();
-        //return $categoryBeacons;
         return view('category-beacons.index', compact('categoryBeacons'));
     }
 
@@ -59,9 +55,6 @@ class CategoryBeaconController extends Controller
      */
     public function show(CategoryBeacon $categoryBeacon)
     {
-        //return $id;
-        //$categoryBeacon= CategoryBeacon::findOrFail($id);
-        //return $categoryBeacon;
         return view('category-beacons.show', compact('categoryBeacon'));
     }
 
@@ -97,6 +90,7 @@ class CategoryBeaconController extends Controller
      *
      * @param CategoryBeacon $categoryBeacon
      * @return Response
+     * @throws \Exception
      */
     public function destroy(CategoryBeacon $categoryBeacon)
     {

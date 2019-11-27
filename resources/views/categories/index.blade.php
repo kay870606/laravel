@@ -3,7 +3,6 @@
 @section('content')
     <h1 class="title">Categories</h1>
 
-
     <form method="GET" action="/categories/create">
         @csrf
 
@@ -26,8 +25,7 @@
             <tbody>
             @foreach ($categories as $category)
                 <tr>
-                    <th><a href="/categories/{{ $category->id }}">
-                            {{$category->id}}</a></th>
+                    <th><a href="/categories/{{ $category->id }}">{{$category->id}}</a></th>
                     <td>{{$category->number}}</td>
                     <td>{{$category->name}}</td>
                 </tr>
@@ -35,17 +33,5 @@
             </tbody>
         </table>
     </div>
-
-    {{--<div class="content">
-        <ol type="1">
-            @foreach ($categories as $category)
-                <li>
-                    <a href="/categories/{{ $category->id }}">
-                        {{ $category->number .'   '.$category->name }}
-                    </a>
-                </li>
-            @endforeach
-        </ol>
-    </div>--}}
 
 @endsection

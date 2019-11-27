@@ -10,8 +10,7 @@
         <div class="field">
             <label class="label">Number</label>
             <div class="control">
-                <input type="text" name="number" class="input" value="{{ $category->number }}"
-                       required>
+                <input type="text" name="number" class="input" value="{{ $category->number }}" required>
             </div>
         </div>
 
