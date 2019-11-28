@@ -19,6 +19,7 @@ Route::resource('categories', 'CategoryController');
 Route::resource('subcategories', 'SubcategoryController');
 Route::resource('beacons', 'BeaconController');
 Route::resource('activities', 'ActivityController');
+Route::resource('keywords', 'KeywordController');
 //Route::get('categories', 'CategoryController@index');
 //Route::get('categories_beacons/{category_beacon}', 'CategoryBeaconController@show');
 //Route::resource('category_beacon', 'CategoryBeaconController');

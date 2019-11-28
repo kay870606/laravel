@@ -45,7 +45,6 @@
 
         <div class="field">
             <label class="label">Description</label>
-
             <div class="control">
                 <textarea class="textarea" name="description" required></textarea>
             </div>
@@ -53,7 +52,6 @@
 
         <div class="field">
             <label class="label">Specification</label>
-
             <div class="control">
                 <textarea class="textarea" name="specification" required></textarea>
             </div>
