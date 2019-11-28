@@ -40,11 +40,12 @@ class KeywordController extends Controller
     {
         $everyLineToArray = explode("\r\n", $request->mapping);
         $removeDuplicate = array_unique($everyLineToArray);
-        /*$validated = $request->validated();
-        Keyword::create($validated);*/
-        foreach ($removeDuplicate as $removeDuplicates) {
+        $removeBlank = array_filter($removeDuplicate);
+        $results = $removeBlank;
+        /*$validated = $request->validated();*/
+        foreach ($results as $result) {
             Keyword::create([
-                'name' => $request->name, 'mapping' => $removeDuplicates
+                'name' => $request->name, 'mapping' => $result
             ]);
         }
         return redirect('/keywords');

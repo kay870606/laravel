@@ -18,6 +18,8 @@ class CreateKeywordsTable extends Migration
             $table->string('name');
             $table->string('mapping');
             $table->timestamps();
+
+            $table->unique(['name','mapping']);;
         });
     }
 
