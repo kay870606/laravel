@@ -85,18 +85,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="/categories">分類</a>
-                    <a href="/subcategories">小分類</a>
-                    <a href="/beacons">Beacon</a>
-                    <a href="/api/categories">api分類</a>
-                    {{--<a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>--}}
+                    <a href="/categories">管理頁面</a>
+                    <a href="/api/">api</a>
                 </div>
             </div>
         </div>

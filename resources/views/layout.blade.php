@@ -38,12 +38,6 @@
         <p class="level-item has-text-centered">
             <a class="link is-info" href="/keywords">關鍵字</a>
         </p>
-        <p class="level-item has-text-centered">
-            <a class="link is-info" href="/api/categories">api分類</a>
-        </p>
-        <p class="level-item has-text-centered">
-            <a class="link is-info" href="/api/activities">api活動</a>
-        </p>
     </nav>
 </div>
 
