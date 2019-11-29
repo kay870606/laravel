@@ -41,7 +41,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         //$category = Category::where('id', $id)->with('subcategories')->with('beacons')->first();
-        $category = Category::where('id', $id)->with('beacons')->get();
+        $category = Category::where('id', $id)->with('beacons')->first();
         return $category;
     }
 

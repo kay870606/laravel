@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CategoryBeacon extends Model
+class CategoryBeacon extends Pivot
 {
     use SoftDeletes;
 

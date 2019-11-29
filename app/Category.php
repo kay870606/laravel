@@ -18,7 +18,7 @@ class Category extends Model
 
     public function beacons()
     {
-        return $this->hasManyThrough('App\Beacon', 'App\CategoryBeacon');
+        return $this->belongsToMany('App\Beacon','category_beacons');
     }
 
     public function categoryActivities()
