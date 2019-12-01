@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+
     <h1 class="title">Show</h1>
 
     <form method="GET" action="/categories/{{ $category->id }}/edit">

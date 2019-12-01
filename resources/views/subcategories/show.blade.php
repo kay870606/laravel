@@ -1,28 +1,33 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">{{ $subcategory->id }}</h1>
+    <h1 class="title">Show</h1>
 
-    {{-- @can('update', $project)
-        <a href="">Update</a>
-    @endcan --}}
+    <form method="GET" action="/subcategories/{{ $subcategory->id }}/edit">
+        @csrf
 
-    <div class="content">
-        <p>{{ $subcategory->category->number }}</p>
-
-        <p>{{ $subcategory->category->name }}</p>
-
-        <p>{{ $subcategory->name }}</p>
-
-        <form method="GET" action="/subcategories/{{ $subcategory->id }}/edit">
-            @csrf
-
-            <div class="field">
-                <div class="control">
-                    <button type="submit" class="button is-link">Edit</button>
-                </div>
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-link">Edit</button>
             </div>
-        </form>
+        </div>
+    </form>
+
+    <div class="table-container">
+        <table class="table">
+            <tbody>
+            <th>Category number</th>
+            <td>{{ $subcategory->category->number }}</td>
+            </tbody>
+            <tbody>
+            <th>Category name</th>
+            <td>{{ $subcategory->category->name }}</td>
+            </tbody>
+            <tbody>
+            <th>Name</th>
+            <td>{{ $subcategory->name }}</td>
+            </tbody>
+        </table>
     </div>
 
 @endsection

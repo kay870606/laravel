@@ -1,26 +1,29 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">{{ $beacon->id }}</h1>
+    <h1 class="title">Show</h1>
 
-    {{-- @can('update', $project)
-        <a href="">Update</a>
-    @endcan --}}
+    <form method="GET" action="/beacons/{{ $beacon->id }}/edit">
+        @csrf
 
-    <div class="content">
-        <p>{{ $beacon->name }}</p>
-
-        <p>{{ $beacon->mac }}</p>
-
-        <form method="GET" action="/beacons/{{ $beacon->id }}/edit">
-            @csrf
-
-            <div class="field">
-                <div class="control">
-                    <button type="submit" class="button is-link">Edit</button>
-                </div>
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-link">Edit</button>
             </div>
-        </form>
+        </div>
+    </form>
+
+    <div class="table-container">
+        <table class="table">
+            <tbody>
+            <th>Name</th>
+            <td>{{ $beacon->name }}</td>
+            </tbody>
+            <tbody>
+            <th>Mac</th>
+            <td>{{ $beacon->mac }}</td>
+            </tbody>
+        </table>
     </div>
 
 @endsection

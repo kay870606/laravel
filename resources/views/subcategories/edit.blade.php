@@ -27,7 +27,7 @@
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Update Subcategory</button>
+                <button type="submit" class="button is-link">Update</button>
             </div>
         </div>
     </form>
@@ -40,7 +40,7 @@
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button">Delete Subcategory</button>
+                <button type="submit" class="button">Delete</button>
             </div>
         </div>
     </form>

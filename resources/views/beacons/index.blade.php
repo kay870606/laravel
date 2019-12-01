@@ -13,16 +13,25 @@
         </div>
     </form>
 
-    <div class="content">
-        <ol type="1">
+    <div class="table-container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>MAC</th>
+            </tr>
+            </thead>
+            <tbody>
             @foreach ($beacons as $beacon)
-                <li>
-                    <a href="/beacons/{{ $beacon->id }}">
-                        {{ $beacon->name .'   '.$beacon->mac }}
-                    </a>
-                </li>
+                <tr>
+                    <th><a href="/beacons/{{ $beacon->id }}">{{$beacon->id}}</a></th>
+                    <td>{{$beacon->name}}</td>
+                    <td>{{$beacon->mac}}</td>
+                </tr>
             @endforeach
-        </ol>
+            </tbody>
+        </table>
     </div>
 
 @endsection

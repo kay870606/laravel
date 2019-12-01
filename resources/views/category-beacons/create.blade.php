@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Create a New Category Beacon</h1>
+    <h1 class="title">Create</h1>
 
     <form method="POST" action="/category-beacons">
         @csrf
@@ -30,10 +30,11 @@
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Create Category Beacon</button>
+                <button type="submit" class="button is-link">Create</button>
             </div>
         </div>
 
         @include ('errors')
     </form>
+
 @endsection

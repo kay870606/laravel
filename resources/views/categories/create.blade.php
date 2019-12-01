@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+
     <h1 class="title">Create</h1>
 
     <form method="POST" action="/categories">
@@ -14,7 +15,7 @@
         </div>
 
         <div class="field">
-            <label class="label" >Name</label>
+            <label class="label">Name</label>
             <div class="control">
                 <input type="text" name="name" class="input" required>
             </div>
@@ -28,4 +29,5 @@
 
         @include ('errors')
     </form>
+
 @endsection

@@ -17,7 +17,8 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
-        $subcategories = Subcategory::with('category')->orderBy('id')->get();
+        $subcategories = Subcategory::with('category')
+            ->orderBy('id')->get();
         return view('subcategories.index', compact('subcategories'));
     }
 
@@ -28,7 +29,7 @@ class SubcategoryController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('number')->get();
         return view('subcategories.create', compact('categories'));
     }
 

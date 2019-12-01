@@ -16,8 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('id')->get();
-
+        //$categories = Category::orderBy('id')->get();
+        $categories = Category::orderBy('id')->with('beacons')->get();
         return new CategoryCollection($categories);
     }
 

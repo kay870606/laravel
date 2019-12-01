@@ -13,16 +13,29 @@
         </div>
     </form>
 
-    <div class="content">
-        <ol>
-            @foreach ($categoryBeacons as $categoryBeacon)
-                <li>
-                    <a href="/category-beacons/{{ $categoryBeacon->id }}">
-                        {{ $categoryBeacon->category->number .'  '.$categoryBeacon->beacon->name }}
-                    </a>
-                </li>
+    <div class="table-container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category number</th>
+                <th>Category name</th>
+                <th>Beacon name</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach ($categories as $category)
+                @foreach ($category->beacons as $beacon)
+                    <tr>
+                        <th><a href="/category-beacons/{{ $beacon->pivot->id }}">{{$beacon->pivot->id}}</a></th>
+                        <td>{{$category->number}}</td>
+                        <td>{{$category->name}}</td>
+                        <td>{{$beacon->name}}</td>
+                    </tr>
+                @endforeach
             @endforeach
-        </ol>
+            </tbody>
+        </table>
     </div>
 
 @endsection

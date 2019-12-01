@@ -1,7 +1,8 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Edit Category Beacon</h1>
+
+    <h1 class="title">Edit</h1>
 
     <form method="POST" action="/category-beacons/{{ $categoryBeacon->id }}" style="margin-bottom: 1em;">
         @method('PATCH')
@@ -12,7 +13,7 @@
             <div class="select">
                 <select name="category_id">
                     @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->number.'  '.$category->name}}</option>
+                        <option value="{{$category->id}}">{{$category->number.' '.$category->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -32,7 +33,7 @@
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Update Subcategory</button>
+                <button type="submit" class="button is-link">Update</button>
             </div>
         </div>
     </form>
@@ -45,8 +46,9 @@
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button">Delete Category Beacon</button>
+                <button type="submit" class="button">Delete</button>
             </div>
         </div>
     </form>
+
 @endsection
