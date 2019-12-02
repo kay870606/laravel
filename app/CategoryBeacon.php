@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CategoryActivity extends Model
+class CategoryBeacon extends Model
 {
     use SoftDeletes;
 
@@ -16,10 +16,8 @@ class CategoryActivity extends Model
         return $this->belongsTo('App\Category');
     }
 
-    protected $appends = ['image_url'];
-
-    public function getImageUrlAttribute()
+    public function beacon()
     {
-        return asset('storage/' . $this->image_path);
+        return $this->belongsTo('App\Beacon');
     }
 }

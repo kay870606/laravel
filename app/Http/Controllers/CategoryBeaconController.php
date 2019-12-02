@@ -18,14 +18,8 @@ class CategoryBeaconController extends Controller
      */
     public function index()
     {
-        $categories = Category::with('beacons')->get();
-
-        /*foreach ($categories->beacons as $beacon) {
-            return $beacon;
-        }*/
-        /*$categoryBeacons = CategoryBeacon::with('category')->with('beacon')->orderBy('id')->get();*/
-        //return $categories;
-        return view('category-beacons.index', compact('categories'));
+        $categoryBeacons = CategoryBeacon::with('category')->with('beacon')->orderBy('id')->get();
+        return view('category-beacons.index', compact('categoryBeacons'));
     }
 
     /**
@@ -49,42 +43,42 @@ class CategoryBeaconController extends Controller
     public function store(CategoryBeaconRequest $request)
     {
         $validated = $request->validated();
-        Category::find($request->category_id)->beacons()->attach($request->beacon_id);
+        CategoryBeacon::create($validated);
         return redirect('/category-beacons');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param $id
+     * @param CategoryBeacon $categoryBeacon
      * @return Response
      */
-    public function show($id)
+    public function show(CategoryBeacon $categoryBeacon)
     {
-        return view('category-beacons.show', compact('id'));
+        return view('category-beacons.show', compact('categoryBeacon'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param $id
+     * @param CategoryBeacon $categoryBeacon
      * @return Response
      */
-    public function edit($id)
+    public function edit(CategoryBeacon $categoryBeacon)
     {
         $categories = Category::all();
         $beacons = Beacon::all();
-        return view('category-beacons.edit', compact('categories', 'beacons', 'id'));
+        return view('category-beacons.edit', compact('categories', 'beacons', 'categoryBeacon'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param CategoryBeaconRequest $request
-     * @param $id
+     * @param CategoryBeacon $categoryBeacon
      * @return Response
      */
-    public function update(CategoryBeaconRequest $request,$id)
+    public function update(CategoryBeaconRequest $request, CategoryBeacon $categoryBeacon)
     {
         $validated = $request->validated();
         $categoryBeacon->update($validated);
@@ -94,10 +88,11 @@ class CategoryBeaconController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param $id
+     * @param CategoryBeacon $categoryBeacon
      * @return Response
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(CategoryBeacon $categoryBeacon)
     {
         $categoryBeacon->delete();
         return redirect('/category-beacons');

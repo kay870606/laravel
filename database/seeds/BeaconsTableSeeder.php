@@ -11,9 +11,7 @@ class BeaconsTableSeeder extends Seeder
      */
     public function run()
     {
-        Schema::disableForeignKeyConstraints();
         DB::table('beacons')->truncate();
-        Schema::enableForeignKeyConstraints();
 
         for ($i = 0; $i <= 15; $i++)
             for ($j = 0; $j <= 2; $j++) {

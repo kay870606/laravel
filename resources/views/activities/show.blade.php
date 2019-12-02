@@ -1,28 +1,33 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">{{ $activity->id }}</h1>
+    <h1 class="title">Show</h1>
 
-    {{-- @can('update', $project)
-        <a href="">Update</a>
-    @endcan --}}
+    <form method="GET" action="/activities/{{ $activity->id }}/edit">
+        @csrf
 
-    <div class="content">
-        <p>{{ $activity->name }}</p>
-
-        <figure class="image is-128x128">
-            <img src="{{  $activity->url  }}">
-        </figure>
-
-        <form method="GET" action="/activities/{{ $activity->id }}/edit">
-            @csrf
-
-            <div class="field">
-                <div class="control">
-                    <button type="submit" class="button is-link">Edit</button>
-                </div>
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-link">Edit</button>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 
+    <div class="table-container">
+        <table class="table">
+            <tbody>
+            <th>Name</th>
+            <td>{{ $activity->name }}</td>
+            </tbody>
+            <tbody>
+            <th>Image</th>
+            <td>
+            <figure class="image is-128x128">
+                <img src="{{ $activity->image_url }}">
+            </figure>
+            </td>
+            </tbody>
+        </table>
+    </div>
+    
 @endsection

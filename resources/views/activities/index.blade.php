@@ -13,16 +13,23 @@
         </div>
     </form>
 
-    <div class="content">
-        <ol type="1">
+    <div class="table-container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
             @foreach ($activities as $activity)
-                <li>
-                    <a href="/activities/{{ $activity->id }}">
-                        {{ $activity->name }}
-                    </a>
-                </li>
+                <tr>
+                    <th><a href="/activities/{{ $activity->id }}">{{$activity->id}}</a></th>
+                    <td>{{$activity->name}}</td>
+                </tr>
             @endforeach
-        </ol>
+            </tbody>
+        </table>
     </div>
 
 @endsection

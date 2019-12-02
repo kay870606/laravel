@@ -17,7 +17,7 @@ class CreateCategoryActivitiesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('category_id');
             $table->string('name');
-            $table->string('path');
+            $table->string('image_path');
             $table->timestamps();
             $table->softDeletes();
 

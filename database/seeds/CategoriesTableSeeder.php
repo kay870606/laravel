@@ -102,9 +102,7 @@ class CategoriesTableSeeder extends Seeder
             ['number' => 388, 'name' => '旅遊配件'],
         ];
 
-        Schema::disableForeignKeyConstraints();
         DB::table('categories')->truncate();
-        Schema::enableForeignKeyConstraints();
 
         foreach ($items as $item) {
             \App\Category::create($item);

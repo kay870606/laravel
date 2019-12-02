@@ -41,7 +41,7 @@ class ActivityController extends Controller
     {
         $path = $request->image->store($this->getImagePath());
         Activity::create(
-            ['name' => $request->name, 'path' => $path]
+            ['name' => $request->name, 'image_path' => $path]
         );
         return redirect('/activities');
     }
@@ -80,7 +80,7 @@ class ActivityController extends Controller
         if ($request->hasFile('image')) {
             $path = $request->image->store($this->getImagePath());
             $activity->update(
-                ['name' => $request->name, 'path' => $path]
+                ['name' => $request->name, 'image_path' => $path]
             );
         } else {
             $activity->update(
@@ -106,6 +106,6 @@ class ActivityController extends Controller
 
     public function getImagePath()
     {
-        return 'activities/images/' . date('Y-m-d');
+        return 'activities/' . date('Y-m-d');
     }
 }

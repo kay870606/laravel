@@ -24,15 +24,13 @@
             </tr>
             </thead>
             <tbody>
-            @foreach ($categories as $category)
-                @foreach ($category->beacons as $beacon)
-                    <tr>
-                        <th><a href="/category-beacons/{{ $beacon->pivot->id }}">{{$beacon->pivot->id}}</a></th>
-                        <td>{{$category->number}}</td>
-                        <td>{{$category->name}}</td>
-                        <td>{{$beacon->name}}</td>
-                    </tr>
-                @endforeach
+            @foreach ($categoryBeacons as $categoryBeacon)
+                <tr>
+                    <th><a href="/category-beacons/{{ $categoryBeacon->id }}">{{$categoryBeacon->id}}</a></th>
+                    <td>{{$categoryBeacon->category->number}}</td>
+                    <td>{{$categoryBeacon->category->name}}</td>
+                    <td>{{$categoryBeacon->beacon->name}}</td>
+                </tr>
             @endforeach
             </tbody>
         </table>

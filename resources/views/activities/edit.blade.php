@@ -1,10 +1,9 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Edit Activity</h1>
+    <h1 class="title">Edit</h1>
 
-    <form method="POST" action="/activities/{{ $activity->id }}" enctype="multipart/form-data"
-          style="margin-bottom: 1em;">
+    <form method="POST" action="/activities/{{ $activity->id }}" enctype="multipart/form-data" style="margin-bottom: 1em;">
         @method('PATCH')
         @csrf
 
@@ -21,7 +20,7 @@
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Update Activity</button>
+                <button type="submit" class="button is-link">Update</button>
             </div>
         </div>
 
@@ -35,7 +34,7 @@
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button">Delete Activity</button>
+                <button type="submit" class="button">Delete</button>
             </div>
         </div>
     </form>
