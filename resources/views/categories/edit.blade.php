@@ -17,7 +17,7 @@
         <div class="field">
             <label class="label">Name</label>
             <div class="control">
-                <input type="text" name="name" class="input" value="{{ $category->name }}" required>
+                <input type="text" name="name" class="input" value="{{ $category->name }}">
             </div>
         </div>
 

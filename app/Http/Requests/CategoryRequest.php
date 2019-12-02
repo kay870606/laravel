@@ -30,7 +30,7 @@ class CategoryRequest extends FormRequest
                 'integer',
                 Rule::unique('categories')->ignore($this->route('category')),
             ],
-            'name' => 'required'
+            'name' => 'nullable'
         ];
     }
 }
