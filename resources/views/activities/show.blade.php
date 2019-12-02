@@ -22,12 +22,12 @@
             <tbody>
             <th>Image</th>
             <td>
-            <figure class="image is-128x128">
-                <img src="{{ $activity->image_url }}">
-            </figure>
+                <figure class="image">
+                    <img src="{{ $activity->image_url }}">
+                </figure>
             </td>
             </tbody>
         </table>
     </div>
-    
+
 @endsection

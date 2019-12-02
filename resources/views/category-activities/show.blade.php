@@ -1,32 +1,41 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">{{ $categoryActivity->id }}</h1>
+    <h1 class="title">Show</h1>
 
-    {{-- @can('update', $project)
-        <a href="">Update</a>
-    @endcan --}}
+    <form method="GET" action="/category-activities/{{ $categoryActivity->id }}/edit">
+        @csrf
 
-    <div class="content">
-        <p>{{ $categoryActivity->category->number }}</p>
-
-        <p>{{ $categoryActivity->category->name }}</p>
-
-        <p>{{ $categoryActivity->name }}</p>
-
-        <figure class="image is-128x128">
-            <img src="{{  $categoryActivity->url  }}">
-        </figure>
-
-        <form method="GET" action="/category-activities/{{ $categoryActivity->id }}/edit">
-            @csrf
-
-            <div class="field">
-                <div class="control">
-                    <button type="submit" class="button is-link">Edit</button>
-                </div>
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-link">Edit</button>
             </div>
-        </form>
+        </div>
+    </form>
+
+    <div class="table-container">
+        <table class="table">
+            <tbody>
+            <th>Category number</th>
+            <td>{{ $categoryActivity->category->number }}</td>
+            </tbody>
+            <tbody>
+            <th>Category name</th>
+            <td>{{ $categoryActivity->category->name }}</td>
+            </tbody>
+            <tbody>
+            <th>Name</th>
+            <td>{{ $categoryActivity->name }}</td>
+            </tbody>
+            <tbody>
+            <th>Image</th>
+            <td>
+                <figure class="image">
+                    <img src="{{ $categoryActivity->image_url }}">
+                </figure>
+            </td>
+            </tbody>
+        </table>
     </div>
 
 @endsection
