@@ -11,11 +11,11 @@ class Product extends Model
 
     protected $guarded = [];
 
-    protected $appends = ['url'];
+    protected $appends = ['image_url'];
 
-    public function getUrlAttribute()
+    public function getImageUrlAttribute()
     {
-        return asset('storage/' . $this->path);
+        return asset('storage/' . $this->image_path);
     }
 
     public function subcategory()

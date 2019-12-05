@@ -25,7 +25,8 @@ class SubcategoryRequest extends FormRequest
     {
         return [
             'category_id' => 'required|integer|exists:categories,id',
-            'name' => 'required'
+            'order' => 'required|integer',
+            'name' => 'required',
         ];
     }
 }

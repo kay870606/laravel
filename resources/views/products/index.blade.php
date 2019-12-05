@@ -13,16 +13,25 @@
         </div>
     </form>
 
-    <div class="content">
-        <ol type="1">
+    <div class="table-container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>EAN</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
             @foreach ($products as $product)
-                <li>
-                    <a href="/products/{{ $product->id }}">
-                        {{ $product->name }}
-                    </a>
-                </li>
+                <tr>
+                    <th><a href="/products/{{ $product->id }}">{{$product->id}}</a></th>
+                    <td>{{$product->ean}}</td>
+                    <td>{{$product->name}}</td>
+                </tr>
             @endforeach
-        </ol>
+            </tbody>
+        </table>
     </div>
 
 @endsection

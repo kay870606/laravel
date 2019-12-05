@@ -19,6 +19,13 @@
         </div>
 
         <div class="field">
+            <label class="label">Order</label>
+            <div class="control">
+                <input type="text" name="order" class="input"  value="{{ $subcategory->order }}" required>
+            </div>
+        </div>
+
+        <div class="field">
             <label class="label">Name</label>
             <div class="control">
                 <input type="text" name="name" class="input"  value="{{ $subcategory->name }}" required>

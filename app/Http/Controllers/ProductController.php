@@ -49,7 +49,7 @@ class ProductController extends Controller
             'price' => $request->price,
             'description' => $request->description,
             'specification' => $request->specification,
-            'path' => $path
+            'image_path' => $path
         ]);
         return redirect('/products');
     }
@@ -96,7 +96,7 @@ class ProductController extends Controller
                 'price' => $request->price,
                 'description' => $request->description,
                 'specification' => $request->specification,
-                'path' => $path
+                'image_path' => $path
             ]);
         } else {
             $product->update([
@@ -126,6 +126,6 @@ class ProductController extends Controller
 
     public function getImagePath()
     {
-        return 'products/images/' . date('Y-m-d');
+        return 'products/' . date('Y-m-d');
     }
 }

@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('price');
             $table->string('description');
             $table->text('specification');
-            $table->string('path');
+            $table->string('image_path');
             $table->timestamps();
             $table->softDeletes();
 

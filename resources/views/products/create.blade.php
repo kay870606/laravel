@@ -20,7 +20,6 @@
 
         <div class="field">
             <label class="label">EAN</label>
-
             <div class="control">
                 <input type="text" name="ean" class="input" required>
             </div>
@@ -28,7 +27,6 @@
 
         <div class="field">
             <label class="label">Name</label>
-
             <div class="control">
                 <input type="text" name="name" class="input" required>
             </div>
@@ -37,7 +35,6 @@
 
         <div class="field">
             <label class="label">Price</label>
-
             <div class="control">
                 <input type="text" name="price" class="input" required>
             </div>
@@ -59,7 +56,6 @@
 
         <div class="field">
             <label class="label">Image</label>
-
             <input type="file" name="image" required>
         </div>
 

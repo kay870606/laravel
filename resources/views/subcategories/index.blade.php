@@ -20,6 +20,7 @@
                 <th>ID</th>
                 <th>Category Number</th>
                 <th>Category Name</th>
+                <th>Order</th>
                 <th>Name</th>
             </tr>
             </thead>
@@ -29,6 +30,7 @@
                     <th><a href="/subcategories/{{ $subcategory->id }}">{{$subcategory->id}}</a></th>
                     <td>{{$subcategory->category->number}}</td>
                     <td>{{$subcategory->category->name}}</td>
+                    <td>{{$subcategory->order}}</td>
                     <td>{{$subcategory->name}}</td>
                 </tr>
             @endforeach

@@ -24,6 +24,10 @@
             <td>{{ $subcategory->category->name }}</td>
             </tbody>
             <tbody>
+            <th>Order</th>
+            <td>{{ $subcategory->order }}</td>
+            </tbody>
+            <tbody>
             <th>Name</th>
             <td>{{ $subcategory->name }}</td>
             </tbody>
