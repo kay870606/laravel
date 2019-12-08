@@ -9,6 +9,13 @@ use Illuminate\Http\Response;
 
 class ActivityController extends Controller
 {
+    private $imagePath;
+
+    public function __construct()
+    {
+        $this->imagePath = 'activities/' . date('Y-m-d');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +46,7 @@ class ActivityController extends Controller
      */
     public function store(ActivityRequest $request)
     {
-        $path = $request->image->store($this->getImagePath());
+        $path = $request->image->store($this->imagePath);
         Activity::create(
             ['name' => $request->name, 'image_path' => $path]
         );
