@@ -20,9 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/', function () {
     return [
         'categories' => url('/api/categories'),
+        'subcategories' => url('/api/subcategories'),
         'activities' => url('/api/activities')
     ];
 });
 
 Route::apiResource('categories', 'API\CategoryController');
+Route::apiResource('subcategories', 'API\SubcategoryController');
 Route::apiResource('activities', 'API\ActivityController');

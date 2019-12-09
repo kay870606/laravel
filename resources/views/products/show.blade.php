@@ -38,8 +38,8 @@
             <tbody>
             <th>Image</th>
             <td>
-                <figure class="image is-128x128">
-                    <img src="{{  $product->url  }}">
+                <figure class="image">
+                    <img src="{{  $product->image_url  }}">
                 </figure>
             </td>
             </tbody>

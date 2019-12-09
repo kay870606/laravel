@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Category;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CategoryCollection;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +14,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //$categories = Category::orderBy('id')->get();
-        $categories = Category::orderBy('id')->get();
-        return new CategoryCollection($categories);
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -35,25 +31,19 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param $id
-     * @return void
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //$category = Category::where('id', $id)->with('subcategories')->with('beacons')->first();
-        $category = Category::where('id', $id)
-            ->with('subcategories.products')
-            ->with('beacons')
-            ->with('categoryActivities')
-            ->first();
-        return $category;
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -64,7 +54,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
