@@ -42,7 +42,9 @@ class CategoryController extends Controller
     {
         //$category = Category::where('id', $id)->with('subcategories')->with('beacons')->first();
         $category = Category::where('id', $id)
-            ->with('subcategories.products')
+            ->with(['subcategories' => function ($query) {
+                $query->distinct('name');
+            }, 'subcategories.products'])
             ->with('beacons')
             ->with('categoryActivities')
             ->first();
