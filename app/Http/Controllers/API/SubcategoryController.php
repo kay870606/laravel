@@ -39,7 +39,9 @@ class SubcategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $subcategory = Subcategory::where('id', $id)
+            ->first();
+        return $subcategory;
     }
 
     /**
@@ -63,5 +65,15 @@ class SubcategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function randomFourProducts($id)
+    {
+        $subcategory = Subcategory::where('id', $id)
+            ->with(['products' => function ($query) {
+                $query->limit(4)->inRandomOrder();
+            }])
+            ->first();
+        return $subcategory;
     }
 }
