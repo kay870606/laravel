@@ -16,14 +16,22 @@ class CategoryActivityController extends Controller
      */
     public function index()
     {
-        $categories = CategoryActivity::orderBy('id')->get();
-        return new CategoryActivityCollection($categories);
+        if (request()->filled('random')) {
+            $random = request()->input('random');
+            $max = CategoryActivity::max('id');
+            $random = $random > $max ? $max : $random;
+
+            $categoryActivities = CategoryActivity::all()->random($random);
+        } else {
+            $categoryActivities = CategoryActivity::all();
+        }
+        return new CategoryActivityCollection($categoryActivities);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -34,7 +42,7 @@ class CategoryActivityController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -45,8 +53,8 @@ class CategoryActivityController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -57,7 +65,7 @@ class CategoryActivityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

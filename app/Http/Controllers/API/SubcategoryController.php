@@ -40,9 +40,10 @@ class SubcategoryController extends Controller
      */
     public function show($id)
     {
-        //return request()->input('random-products');
-        if(request()->filled('random-products')){
+        if (request()->filled('random-products')) {
             $randomProducts = request()->input('random-products');
+            $max = Product::where('subcategory_id', $id)->max('id');
+            $randomProducts = $randomProducts > $max ? $max:$randomProducts;
 
             $subcategory = Subcategory::where('id', $id)
                 ->with(['products' => function ($query) use ($id, $randomProducts) {
@@ -51,8 +52,7 @@ class SubcategoryController extends Controller
                     $query->find($collection->random($randomProducts));
                 }])
                 ->first();
-        }
-        else {
+        } else {
             $subcategory = Subcategory::where('id', $id)
                 ->with('products')
                 ->first();
