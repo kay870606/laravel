@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Activity;
+use App\Beacon;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BeaconCollection;
 use Illuminate\Http\Request;
-use App\Http\Resources\ActivityCollection;
 
-class ActivityController extends Controller
+class BeaconController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,16 +16,15 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        $activities = Activity::orderBy('id')->get();
+        $beacons = Beacon::orderBy('id')->get();
 
-        return new ActivityCollection($activities);
-        //return $activities;
+        return new BeaconCollection($beacons);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -36,21 +35,22 @@ class ActivityController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $activity = Activity::where('id', $id)->first();
-        //$activity->url = asset('storage/' . $activity->image_path);
-        return $activity;
+        $beacons = Beacon::where('id', $id)
+            ->with('categories.categoryActivities')
+            ->first();
+        return $beacons;
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -61,7 +61,7 @@ class ActivityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -22,7 +22,8 @@ Route::get('/', function () {
         'categories' => url('/api/categories'),
         'category_activities' => url('/api/category-activities'),
         'subcategories' => url('/api/subcategories'),
-        'activities' => url('/api/activities')
+        'activities' => url('/api/activities'),
+        'beacons' => url('/api/beacons')
     ];
 });
 
@@ -40,3 +41,4 @@ Route::apiResource('categories', 'API\CategoryController');
 Route::apiResource('category-activities', 'API\CategoryActivityController');
 Route::apiResource('subcategories', 'API\SubcategoryController');
 Route::apiResource('activities', 'API\ActivityController');
+Route::apiResource('beacons', 'API\BeaconController');
