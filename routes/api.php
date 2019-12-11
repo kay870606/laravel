@@ -20,17 +20,28 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/', function () {
     return [
         'categories' => url('/api/categories'),
-        'categories_activities_randomFour' => url('/api/categories/activities/randomFour'),
+        'category_activities' => url('/api/categories/activities'),
         'subcategories' => url('/api/subcategories'),
-        'subcategories_products_randomFour' => url('/api/subcategories/{id}/randomFourProducts'),
         'activities' => url('/api/activities')
     ];
 });
 
-Route::apiResource('categories', 'API\CategoryController');
-Route::get('categories/activities/randomFour', 'API\CategoryController@randomFourProducts');
+
+/*Route::prefix('categories')->group(function () {
+    Route::apiResource('/', 'API\CategoryController');
+    //Route::resource('/activities', 'API\CategoryActivityController');
+
+    //Route::resource('/beacons', 'CategoryBeaconController');
+    //Route::get('/beacons', 'CategoryBeaconController@index');
+    //Route::get('/beacons/{categoryBeacon}', 'CategoryBeaconController@show');
+});*/
+
+Route::get('categories', 'API\CategoryController@index');
+Route::get('categories/{id}', 'API\CategoryController@show')
+    ->where('id', '[0-9]+');
+Route::get('categories/activities', 'API\CategoryActivityController@index');
+Route::get('categories/activities/{id}', 'API\CategoryActivityController@show');
 
 Route::apiResource('subcategories', 'API\SubcategoryController');
-Route::get('subcategories/{id}/products/randomFour', 'API\SubcategoryController@randomFourProducts');
 
 Route::apiResource('activities', 'API\ActivityController');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\SubcategoryCollection;
+use App\Product;
 use App\Subcategory;
 use Illuminate\Http\Request;
 
@@ -39,8 +40,23 @@ class SubcategoryController extends Controller
      */
     public function show($id)
     {
-        $subcategory = Subcategory::where('id', $id)
-            ->first();
+        //return request()->input('random-products');
+        if(request()->filled('random-products')){
+            $randomProducts = request()->input('random-products');
+
+            $subcategory = Subcategory::where('id', $id)
+                ->with(['products' => function ($query) use ($id, $randomProducts) {
+                    //$query->limit($randomProducts)->inRandomOrder();
+                    $collection = Product::where('subcategory_id', $id)->pluck('id');
+                    $query->find($collection->random($randomProducts));
+                }])
+                ->first();
+        }
+        else {
+            $subcategory = Subcategory::where('id', $id)
+                ->with('products')
+                ->first();
+        }
         return $subcategory;
     }
 
@@ -65,15 +81,5 @@ class SubcategoryController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function randomFourProducts($id)
-    {
-        $subcategory = Subcategory::where('id', $id)
-            ->with(['products' => function ($query) {
-                $query->limit(4)->inRandomOrder();
-            }])
-            ->first();
-        return $subcategory;
     }
 }
