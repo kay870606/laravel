@@ -4,21 +4,21 @@ namespace App\Http\Controllers\API;
 
 use App\Activity;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BasicCollection;
 use Illuminate\Http\Request;
-use App\Http\Resources\ActivityCollection;
 
 class ActivityController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return BasicCollection
      */
     public function index()
     {
         $activities = Activity::orderBy('id')->get();
 
-        return new ActivityCollection($activities);
+        return new BasicCollection($activities);
         //return $activities;
     }
 
@@ -42,7 +42,6 @@ class ActivityController extends Controller
     public function show($id)
     {
         $activity = Activity::where('id', $id)->first();
-        //$activity->url = asset('storage/' . $activity->image_path);
         return $activity;
     }
 

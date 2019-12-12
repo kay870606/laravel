@@ -2,41 +2,31 @@
 
 namespace App\Http\Controllers\API;
 
-use App\CategoryActivity;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BasicCollection;
+use App\Product;
 use Illuminate\Http\Request;
 
-class CategoryActivityController extends Controller
+class SubcategoryProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return CategoryActivityCollection
+     * @param $subcategories
+     * @return BasicCollection
      */
-    public function index()
+    public function index($subcategories)
     {
-        $categoryActivities = CategoryActivity::query();
+        $products = Product::query()->where('subcategory_id', $subcategories);
 
         if (request()->has('random')) {
             $random = request()->input('random');
-            $categoryActivities->inRandomOrder()->limit($random);
+            $products->inRandomOrder()->limit($random);
         }
 
-        $categoryActivities = $categoryActivities->get();
-        return new BasicCollection($categoryActivities);
-        //return CategoryActivity::inRandomOrder()->limit(1024)->get();
-
-        /*if (request()->filled('random')) {
-            $random = request()->input('random');
-            $max = CategoryActivity::max('id');
-            $random = $random > $max ? $max : $random;
-
-            $categoryActivities = CategoryActivity::all()->random($random);
-        } else {
-            $categoryActivities = CategoryActivity::all();
-        }
-        return new BasicCollection($categoryActivities);(*/
+        $products = $products->get();
+        //$products = Product::where('subcategory_id', $subcategories)->get();
+        return new BasicCollection($products);
     }
 
     /**

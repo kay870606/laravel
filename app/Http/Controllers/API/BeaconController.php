@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Beacon;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\BeaconCollection;
+use App\Http\Resources\BasicCollection;
 use Illuminate\Http\Request;
 
 class BeaconController extends Controller
@@ -18,7 +18,7 @@ class BeaconController extends Controller
     {
         $beacons = Beacon::orderBy('id')->get();
 
-        return new BeaconCollection($beacons);
+        return new BasicCollection($beacons);
     }
 
     /**

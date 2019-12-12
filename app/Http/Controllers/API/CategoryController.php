@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Category;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CategoryCollection;
+use App\Http\Resources\BasicCollection;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -16,9 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //$categories = Category::orderBy('id')->get();
         $categories = Category::orderBy('id')->get();
-        return new CategoryCollection($categories);
+        return new BasicCollection($categories);
     }
 
     /**

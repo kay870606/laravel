@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\SubcategoryCollection;
+use App\Http\Resources\BasicCollection;
 use App\Product;
 use App\Subcategory;
 use Illuminate\Http\Request;
@@ -18,7 +18,7 @@ class SubcategoryController extends Controller
     public function index()
     {
         $subcategories = Subcategory::orderBy('id')->get();
-        return new SubcategoryCollection($subcategories);
+        return new BasicCollection($subcategories);
     }
 
     /**
