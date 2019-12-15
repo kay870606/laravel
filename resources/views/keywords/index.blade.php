@@ -1,9 +1,9 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Categories</h1>
+    <h1 class="title">Keywords</h1>
 
-    <form method="GET" action="/categories/create">
+    <form method="GET" action="/keywords/create">
         @csrf
 
         <div class="field">
@@ -18,16 +18,14 @@
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Number</th>
                 <th>Name</th>
             </tr>
             </thead>
             <tbody>
-            @foreach ($categories as $category)
+            @foreach ($keywords as $keyword)
                 <tr>
-                    <th><a href="/categories/{{ $category->id }}">{{$category->id}}</a></th>
-                    <td>{{$category->number}}</td>
-                    <td>{{$category->name}}</td>
+                    <th><a href="/keywords/{{ $keyword->id }}">{{$keyword->id}}</a></th>
+                    <td>{{$keyword->name}}</td>
                 </tr>
             @endforeach
             </tbody>

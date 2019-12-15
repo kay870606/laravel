@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\KeywordRequest;
 use App\Keyword;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -16,7 +18,6 @@ class KeywordController extends Controller
     public function index()
     {
         $keywords = Keyword::orderBy('id')->get();
-        return $keywords;
         return view('keywords.index', compact('keywords'));
     }
 
@@ -33,66 +34,62 @@ class KeywordController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param KeywordRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(KeywordRequest $request)
     {
-        $everyLineToArray = explode("\r\n", $request->mapping);
-        $removeDuplicate = array_unique($everyLineToArray);
-        $removeBlank = array_filter($removeDuplicate);
-        $results = $removeBlank;
-        /*$validated = $request->validated();*/
-        foreach ($results as $result) {
-            Keyword::create([
-                'name' => $request->name, 'mapping' => $result
-            ]);
-        }
+        $validated = $request->validated();
+        Keyword::create($validated);
         return redirect('/keywords');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Keyword $keyword
+     * @param Keyword $keyword
      * @return Response
      */
     public function show(Keyword $keyword)
     {
-        //
+        return view('keywords.show', compact('keyword'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Keyword $keyword
+     * @param Keyword $keyword
      * @return Response
      */
     public function edit(Keyword $keyword)
     {
-        //
+        return view('keywords.edit', compact('keyword'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param \App\Keyword $keyword
+     * @param KeywordRequest $request
+     * @param Keyword $keyword
      * @return Response
      */
-    public function update(Request $request, Keyword $keyword)
+    public function update(KeywordRequest $request, Keyword $keyword)
     {
-        //
+        $validated = $request->validated();
+        $keyword->update($validated);
+        return redirect('/keywords');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Keyword $keyword
+     * @param Keyword $keyword
      * @return Response
+     * @throws Exception
      */
     public function destroy(Keyword $keyword)
     {
-        //
+        $keyword->delete();
+        return redirect('/keywords');
     }
 }

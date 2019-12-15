@@ -14,13 +14,6 @@
         </div>
 
         <div class="field">
-            <label class="label">Mapping</label>
-            <div class="control">
-                <textarea class="textarea" name="mapping" required></textarea>
-            </div>
-        </div>
-
-        <div class="field">
             <div class="control">
                 <button type="submit" class="button is-link">Create</button>
             </div>
