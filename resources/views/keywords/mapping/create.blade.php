@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="title">Create</h1>
 
-    <form method="POST" action="/keywords">
+    <form method="POST" action="/keywords/{{ $keyword->id }}/mappings">
         @csrf
 
         <div class="field">

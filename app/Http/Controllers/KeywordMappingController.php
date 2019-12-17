@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\KeywordMappingRequest;
+use App\Keyword;
 use App\KeywordMapping;
 use Illuminate\Http\Request;
 
@@ -21,11 +22,13 @@ class KeywordMappingController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param $keyword
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($keyword)
     {
-        return view('keywords.mapping.create');
+        $keyword = Keyword::find($keyword);
+        return view('keywords.mapping.create', compact('keyword'));
     }
 
     /**
@@ -34,11 +37,13 @@ class KeywordMappingController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(KeywordMappingRequest $request)
+    public function store(KeywordMappingRequest $request, $keyword)
     {
         $validated = $request->validated();
-        KeywordMapping::create($validated);
-        return redirect('/keywords');
+        KeywordMapping::create([
+            'keyword_id' => $keyword, 'name' => $request->name
+        ]);
+        return redirect('/keywords/' . $keyword);
     }
 
     /**
@@ -83,7 +88,7 @@ class KeywordMappingController extends Controller
      */
     public function destroy($keywords, $mapping)
     {
-        KeywordMapping::where('id',$mapping)->delete();
+        KeywordMapping::where('id', $mapping)->delete();
         return redirect('/keywords/' . $keywords);
     }
 }

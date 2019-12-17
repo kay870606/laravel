@@ -33,7 +33,7 @@
             @foreach ( $keyword->keywordMappings as $keywordMapping)
                 <tbody>
                 <tr>
-                    <th>Mapping : {{$keywordMapping->id}}</th>
+                    <th>Mapping</th>
                     <td>{{$keywordMapping->name}}</td>
                     <td>
                         <form action="/keywords/{{ $keyword->id }}/mappings/{{ $keywordMapping->id }}" method="POST">
