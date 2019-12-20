@@ -27,6 +27,8 @@ Route::get('/', function () {
         'users' => url('/api/users'),
         'orders' => url('/api/orders'),
 
+        'others' => url('/api/others'),
+
         'category_category_activities' => url('/api/categories/{category}/category-activities'),
         'subcategory_products' => url('/api/subcategories/{subcategories}/products'),
     ];
@@ -52,3 +54,5 @@ Route::apiResource('orders', 'API\OrderController');
 
 Route::apiResource('categories.category-activities', 'API\CategoryCategoryActivityController');
 Route::apiResource('subcategories.products', 'API\SubcategoryProductController');
+
+Route::get('others', 'API\OtherController@index');
