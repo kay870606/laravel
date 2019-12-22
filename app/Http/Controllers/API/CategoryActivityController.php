@@ -23,7 +23,7 @@ class CategoryActivityController extends Controller
             $categoryActivities->inRandomOrder()->limit($random);
         }
 
-        $categoryActivities = $categoryActivities->get();
+        $categoryActivities = $categoryActivities->with('category.beacons')->get();
         return new BasicCollection($categoryActivities);
         //return CategoryActivity::inRandomOrder()->limit(1024)->get();
 
