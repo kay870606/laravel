@@ -16,7 +16,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('id')->with('beacons')->get();
+        $categories = Category::with('subcategories.products')
+            ->with('beacons')
+            ->with('categoryActivities')
+            ->orderBy('id')
+            ->get();
         return new BasicCollection($categories);
     }
 
@@ -39,7 +43,6 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //$category = Category::where('id', $id)->with('subcategories')->with('beacons')->first();
         $category = Category::where('id', $id)
             ->with(['subcategories' => function ($query) {
                 $query->distinct('name');

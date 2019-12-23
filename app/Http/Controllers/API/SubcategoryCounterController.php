@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Activity;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\BasicCollection;
+use App\Http\Requests\SubcategoryCounterRequest;
+use App\SubcategoryCounter;
 use Illuminate\Http\Request;
 
-class ActivityController extends Controller
+class SubcategoryCounterController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return BasicCollection
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $activities = Activity::orderBy('id')->get();
-        return $activities;
+        return SubcategoryCounter::orderBy('id')->get();
     }
 
     /**
@@ -26,9 +25,12 @@ class ActivityController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SubcategoryCounterRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $subcategoryCounters = SubcategoryCounter::create($validated);
+        return response($subcategoryCounters, 200)
+            ->header('Content-Type', 'text/plain');
     }
 
     /**
@@ -39,8 +41,7 @@ class ActivityController extends Controller
      */
     public function show($id)
     {
-        $activity = Activity::where('id', $id)->first();
-        return $activity;
+        //
     }
 
     /**

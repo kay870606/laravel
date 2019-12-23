@@ -26,6 +26,8 @@ Route::get('/', function () {
         'beacons' => url('/api/beacons'),
         'users' => url('/api/users'),
         'orders' => url('/api/orders'),
+        'position-records' => url('/api/position-records'),
+        'subcategory-counters' => url('/api/subcategory-counters'),
 
         'others' => url('/api/others'),
 
@@ -51,6 +53,8 @@ Route::apiResource('activities', 'API\ActivityController');
 Route::apiResource('beacons', 'API\BeaconController');
 Route::apiResource('users', 'API\UserController');
 Route::apiResource('orders', 'API\OrderController');
+Route::apiResource('position-records', 'API\PositionRecordController');
+Route::apiResource('subcategory-counters', 'API\PositionRecordController');
 
 Route::apiResource('categories.category-activities', 'API\CategoryCategoryActivityController');
 Route::apiResource('subcategories.products', 'API\SubcategoryProductController');

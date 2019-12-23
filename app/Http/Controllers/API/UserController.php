@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::orderBy('id')->get();
-        return new BasicCollection($users);
+        return $users;
     }
 
     /**

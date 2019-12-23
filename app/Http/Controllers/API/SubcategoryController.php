@@ -17,8 +17,16 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
-        $subcategories = Subcategory::orderBy('id')->get();
-        return new BasicCollection($subcategories);
+        /*$subcategories = Subcategory::query()
+            ->distinct('name')
+
+            ->get();*/
+        $subcategories = Subcategory::query()
+            ->groupBy('id', 'category_id')
+            ->distinct('name')
+            ->get();
+        //$subcategories = Subcategory::orderBy('id')->get();
+        return $subcategories;
     }
 
     /**
@@ -43,7 +51,7 @@ class SubcategoryController extends Controller
         if (request()->filled('random-products')) {
             $randomProducts = request()->input('random-products');
             $max = Product::where('subcategory_id', $id)->max('id');
-            $randomProducts = $randomProducts > $max ? $max:$randomProducts;
+            $randomProducts = $randomProducts > $max ? $max : $randomProducts;
 
             $subcategory = Subcategory::where('id', $id)
                 ->with(['products' => function ($query) use ($id, $randomProducts) {
