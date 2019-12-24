@@ -52,6 +52,6 @@ Route::apiResource('beacons', 'API\BeaconController');
 Route::apiResource('users', 'API\UserController');
 Route::apiResource('orders', 'API\OrderController');
 Route::apiResource('position-records', 'API\PositionRecordController');
-Route::apiResource('subcategory-counters', 'API\PositionRecordController');
+Route::apiResource('subcategory-counters', 'API\SubcategoryCounterController');
 
 Route::get('others', 'API\OtherController@index');
