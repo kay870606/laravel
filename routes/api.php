@@ -31,8 +31,6 @@ Route::get('/', function () {
 
         'others' => url('/api/others'),
 
-        'category_category_activities' => url('/api/categories/{category}/category-activities'),
-        'subcategory_products' => url('/api/subcategories/{subcategories}/products'),
     ];
 });
 
@@ -55,8 +53,5 @@ Route::apiResource('users', 'API\UserController');
 Route::apiResource('orders', 'API\OrderController');
 Route::apiResource('position-records', 'API\PositionRecordController');
 Route::apiResource('subcategory-counters', 'API\PositionRecordController');
-
-Route::apiResource('categories.category-activities', 'API\CategoryCategoryActivityController');
-Route::apiResource('subcategories.products', 'API\SubcategoryProductController');
 
 Route::get('others', 'API\OtherController@index');

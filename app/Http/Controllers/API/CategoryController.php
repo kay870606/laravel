@@ -16,7 +16,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::with('subcategories.products')
+        $categories = Category:: with(
+            ['subcategories' => function ($query) {
+                $query->distinct('category_id', 'name')->orderBy('category_id');
+            }, 'subcategories.products'])
             ->with('beacons')
             ->with('categoryActivities')
             ->orderBy('id')

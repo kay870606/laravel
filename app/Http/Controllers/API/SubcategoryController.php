@@ -18,12 +18,12 @@ class SubcategoryController extends Controller
     public function index()
     {
         /*$subcategories = Subcategory::query()
-            ->distinct('name')
-
+            ->orderBy(function ($query) {
+                $query->from('subcategories')->distinct('category_id', 'name');
+            })
             ->get();*/
         $subcategories = Subcategory::query()
-            ->groupBy('id', 'category_id')
-            ->distinct('name')
+            ->distinct('category_id', 'name')
             ->get();
         //$subcategories = Subcategory::orderBy('id')->get();
         return $subcategories;
