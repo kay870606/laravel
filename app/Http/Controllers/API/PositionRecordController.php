@@ -16,7 +16,7 @@ class PositionRecordController extends Controller
      */
     public function index()
     {
-        return PositionRecord::orderBy('id')->get();
+        return PositionRecord::with('beacon')->orderBy('id')->get();
     }
 
     /**

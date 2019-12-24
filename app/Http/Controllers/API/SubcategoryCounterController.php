@@ -16,7 +16,7 @@ class SubcategoryCounterController extends Controller
      */
     public function index()
     {
-        return SubcategoryCounter::orderBy('id')->get();
+        return SubcategoryCounter::with('subcategory')->orderBy('id')->get();
     }
 
     /**
