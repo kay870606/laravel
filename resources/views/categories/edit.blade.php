@@ -7,18 +7,23 @@
         @method('PATCH')
         @csrf
 
-        <div class="field">
-            <label class="label">編號</label>
-            <div class="control">
-                <input type="text" name="number" class="input" value="{{ $category->number }}" required>
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">名稱</label>
-            <div class="control">
-                <input type="text" name="name" class="input" value="{{ $category->name }}">
-            </div>
+        <div class="table-container">
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <tbody>
+                <tr>
+                    <td>編號</td>
+                    <td>
+                        <input type="text" name="number" class="input" value="{{ $category->number }}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>名稱</td>
+                    <td>
+                        <input type="text" name="name" class="input" value="{{ $category->name }}">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
 
         <div class="field">

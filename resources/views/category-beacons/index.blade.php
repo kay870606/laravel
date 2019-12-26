@@ -1,32 +1,32 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Category Beacon</h1>
+    <h1 class="title">大分類與Beacon</h1>
 
     <form method="GET" action="/category-beacons/create">
         @csrf
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Create</button>
+                <button type="submit" class="button is-link">建立</button>
             </div>
         </div>
     </form>
 
     <div class="table-container">
-        <table class="table">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>Category number</th>
-                <th>Category name</th>
-                <th>Beacon name</th>
+                <th>處理</th>
+                <th>大分類編號</th>
+                <th>大分類名稱</th>
+                <th>Beacon名稱</th>
             </tr>
             </thead>
             <tbody>
             @foreach ($categoryBeacons as $categoryBeacon)
                 <tr>
-                    <td><a href="/category-beacons/{{ $categoryBeacon->id }}">{{$categoryBeacon->id}}</a></td>
+                    <td><a href="/category-beacons/{{ $categoryBeacon->id }}">處理</a></td>
                     <td>{{$categoryBeacon->category->number}}</td>
                     <td>{{$categoryBeacon->category->name}}</td>
                     <td>{{$categoryBeacon->beacon->name}}</td>

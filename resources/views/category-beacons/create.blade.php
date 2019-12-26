@@ -1,13 +1,13 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Create</h1>
+    <h1 class="title">建立</h1>
 
     <form method="POST" action="/category-beacons">
         @csrf
 
         <div class="field">
-            <label class="label">Category</label>
+            <label class="label">大分類</label>
             <div class="select">
                 <select name="category_id">
                     @foreach ($categories as $category)
@@ -30,7 +30,7 @@
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Create</button>
+                <button type="submit" class="button is-link">建立</button>
             </div>
         </div>
 

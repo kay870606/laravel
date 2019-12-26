@@ -15,7 +15,7 @@
     </form>
 
     <div class="table-container">
-        <table class="mistab">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
             <tr>
                 <th>處理</th>
@@ -26,8 +26,7 @@
             <tbody>
             @foreach ($categories as $category)
                 <tr>
-                    <td><a href="/categories/{{ $category->id }}/edit"><img src="/storage/images/edit.gif" border="0"
-                                                                            align="absmiddle"></a></td>
+                    <td><a href="/categories/{{ $category->id }}/edit">處理</a></td>
                     <td>{{$category->number}}</td>
                     <td>{{$category->name}}</td>
                 </tr>

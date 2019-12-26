@@ -8,24 +8,24 @@
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Create</button>
+                <button type="submit" class="button is-link">建立</button>
             </div>
         </div>
     </form>
 
     <div class="table-container">
-        <table class="table">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
+                <th>處理</th>
+                <th>名稱</th>
                 <th>MAC</th>
             </tr>
             </thead>
             <tbody>
             @foreach ($beacons as $beacon)
                 <tr>
-                    <td><a href="/beacons/{{ $beacon->id }}">{{$beacon->id}}</a></td>
+                    <td><a href="/beacons/{{ $beacon->id }}">處理</a></td>
                     <td>{{$beacon->name}}</td>
                     <td>{{$beacon->mac}}</td>
                 </tr>

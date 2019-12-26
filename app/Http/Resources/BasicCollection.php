@@ -17,6 +17,5 @@ class BasicCollection extends ResourceCollection
         return [
             'data' => $this->collection,
         ];
-
     }
 }

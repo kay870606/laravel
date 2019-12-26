@@ -1,23 +1,23 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Subcategories</h1>
+    <h1 class="title">小分類</h1>
 
     <form method="GET" action="/subcategories/create">
         @csrf
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Create</button>
+                <button type="submit" class="button is-link">建立</button>
             </div>
         </div>
     </form>
 
     <div class="table-container">
-        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth ">
-            <thead class="">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead>
             <tr>
-                <th>ID</th>
+                <th>處理</th>
                 <th>大分類編號</th>
                 <th>大分類名稱</th>
                 <th>順序</th>
@@ -27,7 +27,7 @@
             <tbody>
             @foreach ($subcategories as $subcategory)
                 <tr>
-                    <th><a href="/subcategories/{{ $subcategory->id }}">{{$subcategory->id}}</a></th>
+                    <td><a href="/subcategories/{{ $subcategory->id }}">處理</a></td>
                     <td>{{$subcategory->category->number}}</td>
                     <td>{{$subcategory->category->name}}</td>
                     <td>{{$subcategory->order}}</td>

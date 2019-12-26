@@ -24,7 +24,7 @@ class CategoryController extends Controller
             ->with('categoryActivities')
             ->orderBy('id')
             ->get();
-        return new BasicCollection($categories);
+        return (new BasicCollection($categories))->additional(['api_id' => 1]);
     }
 
     /**
@@ -52,8 +52,8 @@ class CategoryController extends Controller
             }, 'subcategories.products'])
             ->with('beacons')
             ->with('categoryActivities')
-            ->first();
-        return $category;
+            ->get();
+        return (new BasicCollection($category))->additional(['api_id' => 2]);
     }
 
     /**

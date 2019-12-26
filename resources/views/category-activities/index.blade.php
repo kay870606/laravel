@@ -1,32 +1,32 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Category Activities</h1>
+    <h1 class="title">大分類活動</h1>
 
     <form method="GET" action="/category-activities/create">
         @csrf
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Create</button>
+                <button type="submit" class="button is-link">建立</button>
             </div>
         </div>
     </form>
 
     <div class="table-container">
-        <table class="table">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>Category number</th>
-                <th>Category name</th>
-                <th>Name</th>
+                <th>處理</th>
+                <th>大分類編號</th>
+                <th>大分類名稱</th>
+                <th>名稱</th>
             </tr>
             </thead>
             <tbody>
             @foreach ($categoryActivities as $categoryActivity)
                 <tr>
-                    <td><a href="/category-activities/{{ $categoryActivity->id }}">{{$categoryActivity->id}}</a></td>
+                    <td><a href="/category-activities/{{ $categoryActivity->id }}">處理</a></td>
                     <td>{{$categoryActivity->category->number}}</td>
                     <td>{{$categoryActivity->category->name}}</td>
                     <td>{{$categoryActivity->name}}</td>

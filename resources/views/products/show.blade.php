@@ -1,14 +1,14 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title">Show</h1>
+    <h1 class="title">顯示</h1>
 
     <form method="GET" action="/products/{{ $product->id }}/edit">
         @csrf
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Edit</button>
+                <button type="submit" class="button is-link">編輯</button>
             </div>
         </div>
     </form>
@@ -20,7 +20,7 @@
             <td>{{ $product->ean }}</td>
             </tbody>
             <tbody>
-            <th>Name</th>
+            <th>名稱</th>
             <td>{{ $product->name }}</td>
             </tbody>
             <tbody>

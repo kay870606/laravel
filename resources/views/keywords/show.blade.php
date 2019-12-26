@@ -2,14 +2,14 @@
 
 @section('content')
 
-    <h1 class="title">Show</h1>
+    <h1 class="title">顯示</h1>
 
     <form method="GET" action="/keywords/{{ $keyword->id }}/edit" style="margin-bottom: 1em;">
         @csrf
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Edit</button>
+                <button type="submit" class="button is-link">編輯</button>
             </div>
         </div>
     </form>
@@ -19,7 +19,7 @@
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Create Mapping</button>
+                <button type="submit" class="button is-link">建立對應</button>
             </div>
         </div>
     </form>
@@ -27,7 +27,7 @@
     <div class="table-container">
         <table class="table">
             <tbody>
-            <th>Name</th>
+            <th>名稱</th>
             <td>{{ $keyword->name }}</td>
             </tbody>
             @foreach ( $keyword->keywordMappings as $keywordMapping)
@@ -42,7 +42,7 @@
 
                             <div class="field">
                                 <div class="control">
-                                    <button type="submit" class="button">Delete</button>
+                                    <button type="submit" class="button">刪除</button>
                                 </div>
                             </div>
                         </form>
