@@ -24,7 +24,7 @@
             <tbody>
             @foreach ($activities as $activity)
                 <tr>
-                    <th><a href="/activities/{{ $activity->id }}">{{$activity->id}}</a></th>
+                    <td><a href="/activities/{{ $activity->id }}">{{$activity->id}}</a></td>
                     <td>{{$activity->name}}</td>
                 </tr>
             @endforeach

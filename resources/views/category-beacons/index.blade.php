@@ -26,7 +26,7 @@
             <tbody>
             @foreach ($categoryBeacons as $categoryBeacon)
                 <tr>
-                    <th><a href="/category-beacons/{{ $categoryBeacon->id }}">{{$categoryBeacon->id}}</a></th>
+                    <td><a href="/category-beacons/{{ $categoryBeacon->id }}">{{$categoryBeacon->id}}</a></td>
                     <td>{{$categoryBeacon->category->number}}</td>
                     <td>{{$categoryBeacon->category->name}}</td>
                     <td>{{$categoryBeacon->beacon->name}}</td>

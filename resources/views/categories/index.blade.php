@@ -2,31 +2,32 @@
 
 @section('content')
 
-    <h1 class="title">Categories</h1>
+    <h1 class="title">大分類</h1>
 
     <form method="GET" action="/categories/create">
         @csrf
 
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Create</button>
+                <button type="submit" class="button is-link">建立</button>
             </div>
         </div>
     </form>
 
     <div class="table-container">
-        <table class="table">
+        <table class="mistab">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>Number</th>
-                <th>Name</th>
+                <th>處理</th>
+                <th>編號</th>
+                <th>名稱</th>
             </tr>
             </thead>
             <tbody>
             @foreach ($categories as $category)
                 <tr>
-                    <th><a href="/categories/{{ $category->id }}">{{$category->id}}</a></th>
+                    <td><a href="/categories/{{ $category->id }}/edit"><img src="/storage/images/edit.gif" border="0"
+                                                                            align="absmiddle"></a></td>
                     <td>{{$category->number}}</td>
                     <td>{{$category->name}}</td>
                 </tr>

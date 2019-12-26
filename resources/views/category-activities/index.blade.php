@@ -26,7 +26,7 @@
             <tbody>
             @foreach ($categoryActivities as $categoryActivity)
                 <tr>
-                    <th><a href="/category-activities/{{ $categoryActivity->id }}">{{$categoryActivity->id}}</a></th>
+                    <td><a href="/category-activities/{{ $categoryActivity->id }}">{{$categoryActivity->id}}</a></td>
                     <td>{{$categoryActivity->category->number}}</td>
                     <td>{{$categoryActivity->category->name}}</td>
                     <td>{{$categoryActivity->name}}</td>

@@ -14,14 +14,14 @@
     </form>
 
     <div class="table-container">
-        <table class="table">
-            <thead>
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth ">
+            <thead class="">
             <tr>
                 <th>ID</th>
-                <th>Category Number</th>
-                <th>Category Name</th>
-                <th>Order</th>
-                <th>Name</th>
+                <th>大分類編號</th>
+                <th>大分類名稱</th>
+                <th>順序</th>
+                <th>名稱</th>
             </tr>
             </thead>
             <tbody>

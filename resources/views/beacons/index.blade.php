@@ -25,7 +25,7 @@
             <tbody>
             @foreach ($beacons as $beacon)
                 <tr>
-                    <th><a href="/beacons/{{ $beacon->id }}">{{$beacon->id}}</a></th>
+                    <td><a href="/beacons/{{ $beacon->id }}">{{$beacon->id}}</a></td>
                     <td>{{$beacon->name}}</td>
                     <td>{{$beacon->mac}}</td>
                 </tr>

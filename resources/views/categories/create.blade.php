@@ -2,32 +2,32 @@
 
 @section('content')
 
-    <h1 class="title">Create</h1>
+    <h1 class="title">建立</h1>
 
     <form method="POST" action="/categories">
         @csrf
-
-        <div class="field">
-            <label class="label">Number</label>
-            <div class="control">
+    <table class="mistab">
+        <tr>
+            <td>編號</td>
+            <td>
                 <input type="text" name="number" class="input" required>
-            </div>
-        </div>
+            </td>
+        </tr>
 
-        <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
+        <tr>
+            <td>名稱</td>
+            <td>
                 <input type="text" name="name" class="input">
-            </div>
-        </div>
-
-        <div class="field">
+            </td>
+        </tr>
+	</table>
+		<div class="field">
             <div class="control">
-                <button type="submit" class="button is-link">Create</button>
+                <button type="submit" class="button is-link">建立</button>
             </div>
         </div>
-
         @include ('errors')
     </form>
+
 
 @endsection
