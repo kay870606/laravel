@@ -12,7 +12,7 @@ class CategoryActivityController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return CategoryActivityCollection
+     * @return BasicCollection
      */
     public function index()
     {
@@ -29,7 +29,8 @@ class CategoryActivityController extends Controller
         }
 
         $categoryActivities = $categoryActivities->with('category.beacons')->get();
-        return new BasicCollection($categoryActivities);
+
+        return (new BasicCollection($categoryActivities))->additional(['api_id' => 3]);
         //return CategoryActivity::inRandomOrder()->limit(1024)->get();
 
         /*if (request()->filled('random')) {

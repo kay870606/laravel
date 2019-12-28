@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SubcategoryCounterRequest;
+use App\Http\Resources\BasicCollection;
 use App\SubcategoryCounter;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class SubcategoryCounterController extends Controller
      */
     public function index()
     {
-        return SubcategoryCounter::with('subcategory')->orderBy('id')->get();
+        $subcategoryCounter = SubcategoryCounter::with('subcategory')->orderBy('id')->get();
+        return (new BasicCollection($subcategoryCounter))->additional(['api_id' => 15]);
     }
 
     /**

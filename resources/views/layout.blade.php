@@ -9,6 +9,32 @@
 </head>
 <body>
 
+@auth
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+        @csrf
+
+        <nav class="navbar">
+            <div class="navbar-menu is-active">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="controller">
+                            <button class="button is-link">登出</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        {{--<div class="columns is-mobile">
+            <div class="column is-1 is-offset-8">
+                <div class="control">
+                    <button class="button is-link">登出</button>
+                </div>
+            </div>
+        </div>--}}
+    </form>
+@endauth
+
 <div class="container">
     <nav class="level">
         <p class="level-item has-text-centered">

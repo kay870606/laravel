@@ -17,7 +17,7 @@ class ActivityController extends Controller
     public function index()
     {
         $activities = Activity::orderBy('id')->get();
-        return $activities;
+        return (new BasicCollection($activities))->additional(['api_id' => 5]);
     }
 
     /**
@@ -40,7 +40,7 @@ class ActivityController extends Controller
     public function show($id)
     {
         $activity = Activity::where('id', $id)->first();
-        return $activity;
+        return (new BasicCollection($activity))->additional(['api_id' => 6]);
     }
 
     /**

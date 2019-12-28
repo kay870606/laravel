@@ -17,7 +17,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::orderBy('id')->get();
-        return new BasicCollection($orders);
+        return (new BasicCollection($orders))->additional(['api_id' => 9]);
     }
 
     /**

@@ -28,7 +28,7 @@ Route::get('/', function () {
         'orders' => url('/api/orders'),
         'position-records' => url('/api/position-records'),
         'subcategory-counters' => url('/api/subcategory-counters'),
-
+        'products'=>url('/api/products'),
         'others' => url('/api/others'),
 
     ];
@@ -53,5 +53,6 @@ Route::apiResource('users', 'API\UserController');
 Route::apiResource('orders', 'API\OrderController');
 Route::apiResource('position-records', 'API\PositionRecordController');
 Route::apiResource('subcategory-counters', 'API\SubcategoryCounterController');
+Route::apiResource('products', 'API\ProductController');
 
 Route::get('others', 'API\OtherController@index');

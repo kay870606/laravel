@@ -12,13 +12,13 @@ class BeaconController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return BasicCollection
      */
     public function index()
     {
         $beacons = Beacon::orderBy('id')->with('categories')->get();
 
-        return $beacons;
+        return (new BasicCollection($beacons))->additional(['api_id' => 7]);
     }
 
     /**

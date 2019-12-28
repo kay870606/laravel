@@ -26,7 +26,7 @@ class SubcategoryController extends Controller
             ->distinct('category_id', 'name')
             ->get();
         //$subcategories = Subcategory::orderBy('id')->get();
-        return $subcategories;
+        return (new BasicCollection($subcategories))->additional(['api_id' => 13]);
     }
 
     /**

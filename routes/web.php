@@ -15,15 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('categories', 'CategoryController');
-Route::resource('subcategories', 'SubcategoryController');
-Route::resource('beacons', 'BeaconController');
-Route::resource('activities', 'ActivityController');
-Route::resource('keywords', 'KeywordController');
-Route::resource('keywords.mappings', 'KeywordMappingController');
-Route::resource('products', 'ProductController');
-Route::resource('category-beacons', 'CategoryBeaconController');
-Route::resource('category-activities', 'CategoryActivityController');
+Auth::routes(['register' => false]);
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::middleware('auth')->group(function () {
+    Route::resource('categories', 'CategoryController');
+    Route::resource('subcategories', 'SubcategoryController');
+    Route::resource('beacons', 'BeaconController');
+    Route::resource('activities', 'ActivityController');
+    Route::resource('keywords', 'KeywordController');
+    Route::resource('keywords.mappings', 'KeywordMappingController');
+    Route::resource('products', 'ProductController');
+    Route::resource('category-beacons', 'CategoryBeaconController');
+    Route::resource('category-activities', 'CategoryActivityController');
+});
+
+Route::resource('qr-code', 'QRCodeController');
 
 Route::get('search', 'SearchController@index');
 //Route::get('categories', 'CategoryController@index');

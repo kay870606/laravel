@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\PositionRecordRequest;
-use App\Http\Resources\BasicCollection;
-use App\PositionRecord;
+use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 
-class PositionRecordController extends Controller
+class QRCodeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +15,23 @@ class PositionRecordController extends Controller
      */
     public function index()
     {
-        $positionRecord = PositionRecord::with('beacon')->orderBy('id')->get();
-        return (new BasicCollection($positionRecord))->additional(['api_id' => 11]);
+        $products = Product::query();
+
+        if (request()->has('product_id')) {
+            $product_id = request()->input('product_id');
+            $product = url('api/products/' . $product_id);
+            return view('qr-code.qrcode', ['product' => $product]);
+        }
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -27,12 +40,9 @@ class PositionRecordController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PositionRecordRequest $request)
+    public function store(Request $request)
     {
-        $validated = $request->validated();
-        $positionRecord = PositionRecord::create($validated);
-        return response($positionRecord, 200)
-            ->header('Content-Type', 'text/plain');
+        //
     }
 
     /**
@@ -42,6 +52,17 @@ class PositionRecordController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    {
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }
