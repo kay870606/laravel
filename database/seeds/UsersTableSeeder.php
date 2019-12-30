@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $items = [
-            ['name' => 'Kay', 'email' => 'aaaaa777@gmail.com', 'password' => Hash::make('kay870606')],
+            ['name' => 'Test', 'email' => 'test@gmail.com', 'password' => Hash::make('testtest')],
         ];
 
         DB::table('users')->truncate();
