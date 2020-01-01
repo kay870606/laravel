@@ -11,6 +11,13 @@ class Subcategory extends Model
 
     protected $guarded = [];
 
+    protected $appends = ['belong_category_first_beacon'];
+
+    public function getBelongCategoryFirstBeaconAttribute()
+    {
+        return $this->category()->first()->beacons()->first();
+    }
+
     public function category()
     {
         return $this->belongsTo('App\Category');
