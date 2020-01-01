@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.management')
 
 @section('content')
     <h1 class="title">大分類與Beacon</h1>

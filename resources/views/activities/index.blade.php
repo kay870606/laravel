@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.management')
 
 @section('content')
     <h1 class="title">活動</h1>

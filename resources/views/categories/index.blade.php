@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.management')
 
 @section('content')
 
@@ -34,5 +34,4 @@
             </tbody>
         </table>
     </div>
-
 @endsection
