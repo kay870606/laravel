@@ -1,7 +1,7 @@
 @extends('layouts.management')
 
 @section('content')
-    <h1 class="title">大分類活動</h1>
+    <h1 class="title">推播管理</h1>
 
     <form method="GET" action="/category-activities/create">
         @csrf
@@ -21,6 +21,7 @@
                 <th>大分類編號</th>
                 <th>大分類名稱</th>
                 <th>名稱</th>
+                <th>圖片</th>
             </tr>
             </thead>
             <tbody>
@@ -30,6 +31,11 @@
                     <td>{{$categoryActivity->category->number}}</td>
                     <td>{{$categoryActivity->category->name}}</td>
                     <td>{{$categoryActivity->name}}</td>
+                    <td>
+                        <figure class="image is-64x64">
+                            <img src="{{ $categoryActivity->image_url }}">
+                        </figure>
+                    </td>
                 </tr>
             @endforeach
             </tbody>

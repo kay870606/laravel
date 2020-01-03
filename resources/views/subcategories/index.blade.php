@@ -1,7 +1,7 @@
 @extends('layouts.management')
 
 @section('content')
-    <h1 class="title">小分類</h1>
+    <h1 class="title">商品管理(小分類)</h1>
 
     <form method="GET" action="/subcategories/create">
         @csrf

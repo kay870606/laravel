@@ -1,7 +1,7 @@
 @extends('layouts.management')
 
 @section('content')
-    <h1 class="title">關鍵字</h1>
+    <h1 class="title">關鍵字管理</h1>
 
     <form method="GET" action="/keywords/create">
         @csrf

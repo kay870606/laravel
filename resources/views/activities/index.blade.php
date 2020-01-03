@@ -1,7 +1,7 @@
 @extends('layouts.management')
 
 @section('content')
-    <h1 class="title">活動</h1>
+    <h1 class="title">活動管理</h1>
 
     <form method="GET" action="/activities/create">
         @csrf
@@ -19,6 +19,7 @@
             <tr>
                 <th>處理</th>
                 <th>名稱</th>
+                <th>圖片</th>
             </tr>
             </thead>
             <tbody>
@@ -26,6 +27,11 @@
                 <tr>
                     <td><a href="/activities/{{ $activity->id }}">處理</a></td>
                     <td>{{$activity->name}}</td>
+                    <td>
+                        <figure class="image is-64x64">
+                            <img src="{{ $activity->image_url }}">
+                        </figure>
+                    </td>
                 </tr>
             @endforeach
             </tbody>

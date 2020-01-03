@@ -1,7 +1,7 @@
 @extends('layouts.management')
 
 @section('content')
-    <h1 class="title">Beacons</h1>
+    <h1 class="title">貨架位置(Beacon)</h1>
 
     <form method="GET" action="/beacons/create">
         @csrf

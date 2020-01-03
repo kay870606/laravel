@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 class="title">大分類</h1>
+    <h1 class="title">商品管理(大分類)</h1>
 
     <form method="GET" action="/categories/create">
         @csrf
