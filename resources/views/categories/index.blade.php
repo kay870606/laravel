@@ -18,7 +18,7 @@
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
             <tr>
-                <th>處理</th>
+                <th>編輯</th>
                 <th>編號</th>
                 <th>名稱</th>
             </tr>
@@ -26,7 +26,7 @@
             <tbody>
             @foreach ($categories as $category)
                 <tr>
-                    <td><a href="/categories/{{ $category->id }}/edit">處理</a></td>
+                    <td><a href="/categories/{{ $category->id }}/edit">編輯</a></td>
                     <td>{{$category->number}}</td>
                     <td>{{$category->name}}</td>
                 </tr>

@@ -17,7 +17,7 @@
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
             <tr>
-                <th>處理</th>
+                <th>編輯</th>
                 <th>國際條碼</th>
                 <th>名稱</th>
                 <th>價格</th>
@@ -29,7 +29,7 @@
             <tbody>
             @foreach ($products as $product)
                 <tr>
-                    <td><a href="/products/{{ $product->id }}">處理</a></td>
+                    <td><a href="/products/{{ $product->id }}/edit">編輯</a></td>
                     <td>{{ $product->ean }}</td>
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->price }}</td>
@@ -37,7 +37,7 @@
                     <td>{{ $product->specification }}</td>
                     <td>
                         <figure class="image is-64x64">
-                            <img src="{{  $product->image_url  }}">
+                            <img src="{{  $product->image_url  }}" style="width: 64px; height: 64px;">
                         </figure>
                     </td>
                 </tr>

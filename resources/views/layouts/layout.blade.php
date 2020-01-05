@@ -42,8 +42,8 @@
 		margin-top:20px;
 		margin-bottom:20px;
 	}
-	.table-container th{
-
+	.table-container table{
+		border:0px solid black;
 	}
 </style>
 <script type="text/javascript">

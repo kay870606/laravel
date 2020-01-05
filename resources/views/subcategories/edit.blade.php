@@ -19,7 +19,7 @@
         </div>
 
         <div class="field">
-            <label class="label">Order</label>
+            <label class="label">順序</label>
             <div class="control">
                 <input type="text" name="order" class="input"  value="{{ $subcategory->order }}" required>
             </div>

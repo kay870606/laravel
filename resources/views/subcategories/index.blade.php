@@ -17,7 +17,7 @@
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
             <tr>
-                <th>處理</th>
+                <th>編輯</th>
                 <th>大分類編號</th>
                 <th>大分類名稱</th>
                 <th>順序</th>
@@ -27,7 +27,7 @@
             <tbody>
             @foreach ($subcategories as $subcategory)
                 <tr>
-                    <td><a href="/subcategories/{{ $subcategory->id }}">處理</a></td>
+                    <td><a href="/subcategories/{{ $subcategory->id }}/edit">編輯</a></td>
                     <td>{{$subcategory->category->number}}</td>
                     <td>{{$subcategory->category->name}}</td>
                     <td>{{$subcategory->order}}</td>

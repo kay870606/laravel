@@ -10,7 +10,7 @@
             @csrf
 
             <div class="table-container">
-                <table class="table is-bordered is-striped is-narrow is-hoverable ">
+                <table class="table is-bordered is-striped is-narrow is-hoverable">
                     <tbody>
                     <tr>
                         <td>編號</td>
@@ -29,7 +29,7 @@
             </div>
 
             <div class="field">
-                    <button type="submit" class="button is-link">建立</button>
+                <button type="submit" class="button is-link">建立</button>
             </div>
 
             @include ('errors')

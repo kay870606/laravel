@@ -17,7 +17,7 @@
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
             <tr>
-                <th>處理</th>
+                <th>編輯</th>
                 <th>名稱</th>
                 <th>圖片</th>
             </tr>
@@ -25,7 +25,7 @@
             <tbody>
             @foreach ($activities as $activity)
                 <tr>
-                    <td><a href="/activities/{{ $activity->id }}">處理</a></td>
+                    <td><a href="/activities/{{ $activity->id }}/edit">編輯</a></td>
                     <td>{{$activity->name}}</td>
                     <td>
                         <figure class="image is-64x64">

@@ -17,7 +17,7 @@
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
             <tr>
-                <th>處理</th>
+                <th>編輯</th>
                 <th>國際條碼</th>
                 <th>名稱</th>
             </tr>
@@ -25,7 +25,7 @@
             <tbody>
             @foreach ($products as $product)
                 <tr>
-                    <td><a href="/products/{{ $product->id }}">處理</a></td>
+                    <td><a href="/products/{{ $product->id }}">編輯</a></td>
                     <td>{{$product->ean}}</td>
                     <td>{{$product->name}}</td>
                 </tr>

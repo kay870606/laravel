@@ -15,7 +15,7 @@
         </div>
 
         <div class="field">
-            <label class="label">Mac</label>
+            <label class="label">MAC位置</label>
             <div class="control">
                 <input type="text" name="mac" class="input" value="{{ $beacon->mac }}" required>
             </div>

@@ -17,7 +17,7 @@
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
             <tr>
-                <th>處理</th>
+                <th>編輯</th>
                 <th>大分類編號</th>
                 <th>大分類名稱</th>
                 <th>Beacon名稱</th>
@@ -26,7 +26,7 @@
             <tbody>
             @foreach ($categoryBeacons as $categoryBeacon)
                 <tr>
-                    <td><a href="/category-beacons/{{ $categoryBeacon->id }}">處理</a></td>
+                    <td><a href="/category-beacons/{{ $categoryBeacon->id }}/edit">編輯</a></td>
                     <td>{{$categoryBeacon->category->number}}</td>
                     <td>{{$categoryBeacon->category->name}}</td>
                     <td>{{$categoryBeacon->beacon->name}}</td>

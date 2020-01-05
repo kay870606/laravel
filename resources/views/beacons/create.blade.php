@@ -14,7 +14,7 @@
         </div>
 
         <div class="field">
-            <label class="label">MAC</label>
+            <label class="label">MAC位址</label>
             <div class="control">
                 <input type="text" name="mac" class="input" required>
             </div>
