@@ -33,7 +33,7 @@
                     <td>{{$categoryActivity->name}}</td>
                     <td>
                         <figure class="image is-64x64">
-                            <img src="{{ $categoryActivity->image_url }}">
+                            <img src="{{ $categoryActivity->image_url }}" style="width: 64px; height: 64px;">
                         </figure>
                     </td>
                 </tr>

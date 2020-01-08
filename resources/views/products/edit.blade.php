@@ -22,14 +22,14 @@
         <div class="field">
             <label class="label">國際條碼</label>
             <div class="control">
-                <input type="text" name="ean" class="input" required>
+                <input type="text" name="ean" class="input" value="{{ $product->ean }}" required>
             </div>
         </div>
 
         <div class="field">
             <label class="label">名稱</label>
             <div class="control">
-                <input type="text" name="name" class="input" required>
+                <input type="text" name="name" class="input" value="{{ $product->name }}" required>
             </div>
         </div>
 
@@ -37,21 +37,21 @@
         <div class="field">
             <label class="label">價格</label>
             <div class="control">
-                <input type="text" name="price" class="input" required>
+                <input type="text" name="price" class="input" value="{{ $product->price }}" required>
             </div>
         </div>
 
         <div class="field">
             <label class="label">描述</label>
             <div class="control">
-                <textarea class="textarea" name="description" required></textarea>
+                <textarea class="textarea" name="description" required>{{ $product->description }}</textarea>
             </div>
         </div>
 
         <div class="field">
             <label class="label">規格</label>
             <div class="control">
-                <textarea class="textarea" name="specification" required></textarea>
+                <textarea class="textarea" name="specification" required>{{ $product->specification }}</textarea>
             </div>
         </div>
 

@@ -25,7 +25,7 @@ class CategoriesTableSeeder extends Seeder
             ['number' => 311, 'name' => '即溶/調和/研磨咖啡'],
             ['number' => 312, 'name' => '果醬/奶粉'],
             ['number' => 313, 'name' => '乳品/果汁/機能飲品'],
-            ['number' => 314, 'name' => '乾果'],
+            ['number' => 314, 'name' => '---乾果---'],
             ['number' => 315, 'name' => '海鮮'],
             ['number' => 316, 'name' => '肉乾/豆干/果凍'],
             ['number' => 317, 'name' => '蜜餞'],

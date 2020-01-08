@@ -8,10 +8,6 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <style>
-    #rectangle {
-        background-image: url("http://140.129.25.76:8000/storage/management/Rectangle 2.png");
-    }
-
     table.grid td {
         border: 0px solid white;
         border-collapse: collapse;
@@ -42,8 +38,11 @@
 		margin-top:20px;
 		margin-bottom:20px;
 	}
-	.table-container table{
-		border:0px solid black;
+	.table-container td{
+		border:1px solid black;
+	}
+	.table-container th{
+		border:1px solid black;
 	}
 </style>
 <script type="text/javascript">

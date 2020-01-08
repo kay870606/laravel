@@ -31,10 +31,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('category-activities', 'CategoryActivityController');
 });
 
-Route::group(['namespace' => 'user'], function () {
-    Route::resource('qr-code', 'QRCodeController');
-    Route::get('search', 'SearchController@index');
-});
+Route::resource('qr-code', 'QRCodeController');
+Route::get('search', 'SearchController@index');
+
 //Route::get('categories', 'CategoryController@index');
 //Route::get('categories_beacons/{category_beacon}', 'CategoryBeaconController@show');
 //Route::resource('category_beacon', 'CategoryBeaconController');

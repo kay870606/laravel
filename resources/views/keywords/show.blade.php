@@ -26,16 +26,15 @@
 
     <div class="table-container">
         <table class="table">
-            <tbody>
-            <th>名稱</th>
-            <td>{{ $keyword->name }}</td>
-            </tbody>
+			<tr>
+				<th>名稱</th>
+				<td colspan="2" style="text-align: center;">{{ $keyword->name }}</td>
+			</tr>
             @foreach ( $keyword->keywordMappings as $keywordMapping)
-                <tbody>
                 <tr>
-                    <th>Mapping</th>
-                    <td>{{$keywordMapping->name}}</td>
-                    <td>
+                    <th style="border:1px solid black;">對應商品</th>
+                    <td style="border:1px solid black;">{{$keywordMapping->name}}</td>
+                    <td style="border:1px solid black;">
                         <form action="/keywords/{{ $keyword->id }}/mappings/{{ $keywordMapping->id }}" method="POST">
                             @method('DELETE')
                             @csrf
@@ -48,7 +47,6 @@
                         </form>
                     </td>
                 </tr>
-                </tbody>
             @endforeach
         </table>
     </div>

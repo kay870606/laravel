@@ -25,6 +25,7 @@
         </div>
 
         <div class="field">
+            <label class="label">圖片</label>
             <input type="file" name="image" required>
         </div>
 
