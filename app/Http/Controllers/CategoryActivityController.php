@@ -17,7 +17,7 @@ class CategoryActivityController extends Controller
      */
     public function index()
     {
-        $categoryActivities = CategoryActivity::orderBy('id')->get();
+        $categoryActivities = CategoryActivity::orderBy('category_id')->get();
 
         return view('category-activities.index', compact('categoryActivities'));
     }
@@ -44,7 +44,7 @@ class CategoryActivityController extends Controller
     {
         $path = $request->image->store($this->getImagePath());
         CategoryActivity::create(
-            ['category_id' => $request->category_id, 'name' => $request->name, 'image_path' => $path]
+            ['category_id' => $request->category_id, 'name' => $request->name, 'price' => $request->price, 'description' => $request->description, 'image_path' => $path]
         );
         return redirect('/category-activities');
     }
@@ -85,11 +85,11 @@ class CategoryActivityController extends Controller
         if ($request->hasFile('image')) {
             $path = $request->image->store($this->getImagePath());
             $categoryActivity->update(
-                ['category_id' => $request->category_id, 'name' => $request->name, 'image_path' => $path]
+                ['category_id' => $request->category_id, 'name' => $request->name, 'price' => $request->price, 'description' => $request->description, 'image_path' => $path]
             );
         } else {
             $categoryActivity->update(
-                ['category_id' => $request->category_id, 'name' => $request->name]
+                ['category_id' => $request->category_id, 'name' => $request->name, 'price' => $request->price, 'description' => $request->description]
             );
         }
 

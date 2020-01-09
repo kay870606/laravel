@@ -18,7 +18,7 @@ class CategoryBeaconController extends Controller
      */
     public function index()
     {
-        $categoryBeacons = CategoryBeacon::with('category')->with('beacon')->orderBy('id')->get();
+        $categoryBeacons = CategoryBeacon::with('category')->with('beacon')->orderBy('category_id')->get();
         return view('category-beacons.index', compact('categoryBeacons'));
     }
 

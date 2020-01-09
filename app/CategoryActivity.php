@@ -11,16 +11,11 @@ class CategoryActivity extends Model
 
     protected $guarded = [];
 
-    protected $appends = ['image_url', 'description'];
+    protected $appends = ['image_url'];
 
     public function getImageUrlAttribute()
     {
         return asset('storage/' . $this->image_path);
-    }
-
-    public function getDescriptionAttribute()
-    {
-        return $this->name;
     }
 
     public function category()

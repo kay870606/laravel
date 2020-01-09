@@ -24,11 +24,6 @@ class CreateProductsTable extends Migration
             $table->string('image_path');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('subcategory_id')
-                ->references('id')
-                ->on('subcategories')
-                ->onDelete('cascade');
         });
     }
 

@@ -20,11 +20,6 @@ class CreateSubcategoriesTable extends Migration
             $table->string('name');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('categories')
-                ->onDelete('cascade');
         });
     }
 

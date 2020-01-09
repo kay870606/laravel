@@ -21,6 +21,8 @@
                 <th>大分類編號</th>
                 <th>大分類名稱</th>
                 <th>名稱</th>
+                <th>價格</th>
+                <th>描述</th>
                 <th>圖片</th>
             </tr>
             </thead>
@@ -31,6 +33,8 @@
                     <td>{{$categoryActivity->category->number}}</td>
                     <td>{{$categoryActivity->category->name}}</td>
                     <td>{{$categoryActivity->name}}</td>
+                    <td>{{$categoryActivity->price}}</td>
+                    <td>{{$categoryActivity->description}}</td>
                     <td>
                         <figure class="image is-64x64">
                             <img src="{{ $categoryActivity->image_url }}" style="width: 64px; height: 64px;">

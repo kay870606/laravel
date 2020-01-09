@@ -19,15 +19,6 @@ class CreateCategoryBeaconsTable extends Migration
             $table->unsignedBigInteger('beacon_id');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('categories')
-                ->onDelete('cascade');
-            $table->foreign('beacon_id')
-                ->references('id')
-                ->on('beacons')
-                ->onDelete('cascade');
         });
     }
 

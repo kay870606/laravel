@@ -18,6 +18,7 @@
             <thead>
             <tr>
                 <th>編輯</th>
+                <th>小分類</th>
                 <th>國際條碼</th>
                 <th>名稱</th>
                 <th>價格</th>
@@ -30,6 +31,7 @@
             @foreach ($products as $product)
                 <tr>
                     <td><a href="/products/{{ $product->id }}/edit">編輯</a></td>
+                    <td>{{ $product->subcategory->category->number .' '. $product->subcategory->category->name .' '. $product->subcategory->name}}</td>
                     <td>{{ $product->ean }}</td>
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->price }}</td>

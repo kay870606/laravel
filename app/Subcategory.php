@@ -27,4 +27,13 @@ class Subcategory extends Model
     {
         return $this->hasMany('App\Product');
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($subcategory) {
+            $subcategory->products()->delete();
+        });
+    }
 }

@@ -13,7 +13,8 @@
             <div class="select">
                 <select name="category_id">
                     @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->number.' '.$category->name}}</option>
+                        <option
+                            value="{{$category->id}}" {{ $category->id == $categoryBeacon->category_id ? 'selected' : ''}}>{{$category->number.' '.$category->name}}</option>
                     @endforeach
                 </select>
             </div>

@@ -12,7 +12,8 @@
             <div class="select">
                 <select name="category_id">
                     @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->number.'  '.$category->name}}</option>
+                        <option
+                            value="{{$category->id}}" {{ $category->id == $subcategory->category_id ? 'selected' : ''}}>{{$category->number.'  '.$category->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -21,14 +22,14 @@
         <div class="field">
             <label class="label">順序</label>
             <div class="control">
-                <input type="text" name="order" class="input"  value="{{ $subcategory->order }}" required>
+                <input type="text" name="order" class="input" value="{{ $subcategory->order }}" required>
             </div>
         </div>
 
         <div class="field">
             <label class="label">名稱</label>
             <div class="control">
-                <input type="text" name="name" class="input"  value="{{ $subcategory->name }}" required>
+                <input type="text" name="name" class="input" value="{{ $subcategory->name }}" required>
             </div>
         </div>
 

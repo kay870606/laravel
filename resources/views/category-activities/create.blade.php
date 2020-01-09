@@ -25,6 +25,20 @@
         </div>
 
         <div class="field">
+            <label class="label">價格</label>
+            <div class="control">
+                <input type="text" name="price" class="input" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">描述</label>
+            <div class="control">
+                <textarea class="textarea" name="description" required></textarea>
+            </div>
+        </div>
+
+        <div class="field">
             <label class="label">圖片</label>
             <input type="file" name="image" required>
         </div>

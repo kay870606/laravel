@@ -17,4 +17,13 @@ class Beacon extends Model
             ->withPivot('id')
             ->withTimestamps();
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($beacon) {
+            $beacon->categories()->delete();
+        });
+    }
 }

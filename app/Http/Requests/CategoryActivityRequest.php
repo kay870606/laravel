@@ -28,6 +28,8 @@ class CategoryActivityRequest extends FormRequest
                 return [
                     'category_id' => 'required|integer|exists:categories,id',
                     'name' => 'required',
+                    'price' => 'required|integer',
+                    'description' => 'required',
                     'image' => 'required|image|file'
                 ];
                 break;
@@ -35,6 +37,8 @@ class CategoryActivityRequest extends FormRequest
                 return [
                     'category_id' => 'required|integer|exists:categories,id',
                     'name' => 'required',
+                    'price' => 'required|integer',
+                    'description' => 'required',
                     'image' => 'image|file'
                 ];
                 break;

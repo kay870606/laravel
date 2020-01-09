@@ -13,7 +13,7 @@
                 <select name="subcategory_id">
                     @foreach ($subcategories as $subcategory)
                         <option
-                            value="{{$subcategory->id}}">{{$subcategory->category->number.'  '.$subcategory->category->name.' '.$subcategory->name}}</option>
+                            value="{{$subcategory->id}}" {{ $subcategory->id == $product->subcategory_id ? 'selected' : ''}}>{{$subcategory->category->number.'  '.$subcategory->category->name.' '.$subcategory->name}}</option>
                     @endforeach
                 </select>
             </div>

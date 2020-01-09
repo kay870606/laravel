@@ -13,7 +13,8 @@
             <div class="select">
                 <select name="category_id">
                     @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->number.'  '.$category->name}}</option>
+                        <option
+                            value="{{$category->id}}" {{ $category->id == $categoryActivity->category_id ? 'selected' : ''}}>{{$category->number.'  '.$category->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -28,10 +29,24 @@
         </div>
 
         <div class="field">
+            <label class="label">價格</label>
+            <div class="control">
+                <input type="text" name="price" class="input" value="{{ $categoryActivity->price }}" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">描述</label>
+            <div class="control">
+                <textarea class="textarea" name="description" required>{{ $categoryActivity->description }}</textarea>
+            </div>
+        </div>
+
+        <div class="field">
             <label class="label">圖片</label>
             <input type="file" name="image" required>
         </div>
-        
+
         <div class="field">
             <div class="control">
                 <button type="submit" class="button is-link">更新</button>

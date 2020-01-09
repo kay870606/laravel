@@ -28,7 +28,7 @@ class ProductRequest extends FormRequest
             'subcategory_id' => 'required|integer|exists:subcategories,id',
             'ean' => [
                 'required',
-                Rule::unique('products')->ignore($this->route('product')),
+                //Rule::unique('products')->ignore($this->route('product')),
             ],
             'name' => 'required',
             'price' => 'required|integer',

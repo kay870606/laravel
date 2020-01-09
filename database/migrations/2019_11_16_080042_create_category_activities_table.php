@@ -17,14 +17,11 @@ class CreateCategoryActivitiesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('category_id');
             $table->string('name');
+            $table->unsignedBigInteger('price');
+            $table->string('description');
             $table->string('image_path');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('categories')
-                ->onDelete('cascade');
         });
     }
 
