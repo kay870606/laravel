@@ -64,7 +64,7 @@ class SubcategoryController extends Controller
      */
     public function edit(Subcategory $subcategory)
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('number')->get();
         return view('subcategories.edit', compact('subcategory', 'categories'));
     }
 

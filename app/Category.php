@@ -32,7 +32,7 @@ class Category extends Model
     {
         parent::boot();
 
-        static::deleting(function($category) {
+        static::deleting(function ($category) {
             $category->subcategories()->delete();
             $category->beacons()->delete();
             $category->categoryActivities()->delete();

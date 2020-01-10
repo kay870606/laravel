@@ -18,7 +18,7 @@ class CategoryBeaconController extends Controller
      */
     public function index()
     {
-        $categoryBeacons = CategoryBeacon::with('category')->with('beacon')->orderBy('category_id')->get();
+        $categoryBeacons = CategoryBeacon::with('category')->with('beacon')->orderBy('beacon_id')->get();
         return view('category-beacons.index', compact('categoryBeacons'));
     }
 
@@ -29,7 +29,7 @@ class CategoryBeaconController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('number')->get();
         $beacons = Beacon::all();
         return view('category-beacons.create', compact('categories', 'beacons'));
     }
@@ -66,7 +66,7 @@ class CategoryBeaconController extends Controller
      */
     public function edit(CategoryBeacon $categoryBeacon)
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('number')->get();
         $beacons = Beacon::all();
         return view('category-beacons.edit', compact('categories', 'beacons', 'categoryBeacon'));
     }
