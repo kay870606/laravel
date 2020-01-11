@@ -31,8 +31,7 @@ class PositionRecordController extends Controller
     {
         $validated = $request->validated();
         $positionRecord = PositionRecord::create($validated);
-        return response($positionRecord, 200)
-            ->header('Content-Type', 'text/plain');
+        return $positionRecord;
     }
 
     /**

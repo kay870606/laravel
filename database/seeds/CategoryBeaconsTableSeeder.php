@@ -19,7 +19,9 @@ class CategoryBeaconsTableSeeder extends Seeder
             $i++;
             CategoryBeacon::create(['category_id' => $j, 'beacon_id' => $i]);
             $i++;
+            $j++;
             CategoryBeacon::create(['category_id' => $j, 'beacon_id' => $i]);
+            $j--;
         }
     }
 }

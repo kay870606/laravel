@@ -39,7 +39,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::where('id', $id)->get();
+        $product = Product::where('id', $id)->with('subcategory.category')->get();
 
         return (new BasicCollection($product))->additional(['api_id' => 18]);
     }

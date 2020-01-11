@@ -32,10 +32,13 @@
                 <a class="link is-info" href="/keywords">關鍵字管理</a>
             </td>
             <td>
+                <a class="link is-info" href="/product-qr-code">QR Code</a>
+            </td>
+            <td>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
                     <div class="controller">
-                        <a href="javascript:;" onclick="logout();" >登出</a>
+                        <a href="javascript:;" onclick="logout();">登出</a>
                     </div>
                 </form>
             </td>

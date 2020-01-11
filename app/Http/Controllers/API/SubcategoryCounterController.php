@@ -31,8 +31,7 @@ class SubcategoryCounterController extends Controller
     {
         $validated = $request->validated();
         $subcategoryCounters = SubcategoryCounter::create($validated);
-        return response($subcategoryCounters, 200)
-            ->header('Content-Type', 'text/plain');
+        return $subcategoryCounters;
     }
 
     /**

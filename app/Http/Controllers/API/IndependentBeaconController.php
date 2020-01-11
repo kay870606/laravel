@@ -1,22 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Product;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\IndependentBeaconRequest;
+use App\Http\Resources\BasicCollection;
+use App\IndependentBeacon;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
 
-class QRCodeController extends Controller
+class IndependentBeaconController extends Controller
 {
-    public function index2()
+    public function latest()
     {
-        $products = Product::query();
-
-        if (request()->has('product_id')) {
-            $product_id = request()->input('product_id');
-            $product = url('api/products/' . $product_id);
-            return view('qr-code.qrcode', ['product' => $product]);
-        }
+        $indepentBeacon = IndependentBeacon::query()->latest()->first()->toArray();
+        return (new BasicCollection($indepentBeacon));
     }
 
     /**
@@ -26,8 +23,8 @@ class QRCodeController extends Controller
      */
     public function index()
     {
-        $url = action('QRCodeController@show', 1);
-        return redirect($url);
+        $indepentBeacons = IndependentBeacon::orderBy('id')->get();
+        return (new BasicCollection($indepentBeacons));
     }
 
     /**
@@ -46,9 +43,11 @@ class QRCodeController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(IndependentBeaconRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $independentBeacon = IndependentBeacon::create($validated);
+        return $independentBeacon;
     }
 
     /**
@@ -59,9 +58,7 @@ class QRCodeController extends Controller
      */
     public function show($id)
     {
-        $products = Product::orderBy('id')->get();
-        $productUrl = action('API\ProductController@show', $id);
-        return view('qr-code.show', compact('products', 'id', 'productUrl'));
+        //
     }
 
     /**

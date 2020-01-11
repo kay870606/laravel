@@ -28,6 +28,11 @@ class Category extends Model
         return $this->hasMany('App\CategoryActivity');
     }
 
+    public function products()
+    {
+        return $this->hasManyThrough('App\Product', 'App\Subcategory');
+    }
+
     protected static function boot()
     {
         parent::boot();
