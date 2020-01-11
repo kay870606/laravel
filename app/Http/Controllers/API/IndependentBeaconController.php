@@ -12,8 +12,14 @@ class IndependentBeaconController extends Controller
 {
     public function latest()
     {
+        if (IndependentBeacon::all()->count() == 0) {
+            return (new BasicCollection(collect()));
+        };
         $indepentBeacon = IndependentBeacon::query()->latest()->first()->toArray();
         return (new BasicCollection($indepentBeacon));
+        //return $indepentBeacon;
+        //$indepentBeacon = IndependentBeacon::query()->latest()->first()->toArray();
+
     }
 
     /**
