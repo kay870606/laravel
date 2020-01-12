@@ -26,7 +26,7 @@
                 <select name="beacon_id">
                     @foreach ($beacons as $beacon)
                         <option
-                            value="{{$beacon->id}}" {{ $beacon->id == $categoryBeacon->$beacon_id ? 'selected' : ''}}>{{$beacon->name}}</option>
+                            value="{{$beacon->id}}" {{ $beacon->id == $categoryBeacon->beacon_id ? 'selected' : ''}}>{{$beacon->name}}</option>
                     @endforeach
                 </select>
             </div>
