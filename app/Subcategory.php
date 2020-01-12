@@ -33,10 +33,12 @@ class Subcategory extends Model
     {
         parent::boot();
 
-        static::deleting(function($subcategory) {
+        static::deleting(function ($subcategory) {
             $subcategory->products()->delete();
         });
 
-       
+        static::addGlobalScope('order', function (Builder $builder) {
+            $builder->orderBy('category_id')->orderBy('order');
+        });
     }
 }
