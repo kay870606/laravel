@@ -17,7 +17,7 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
-        $subcategories = Subcategory::with('category')->orderBy('category_id')->get();
+        $subcategories = Subcategory::with('category')->orderBy('category_id')->orderBy('order')->get();
         return view('subcategories.index', compact('subcategories'));
     }
 
