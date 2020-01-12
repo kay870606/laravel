@@ -38,7 +38,7 @@ class Subcategory extends Model
         });
 
         static::addGlobalScope('order', function (Builder $builder) {
-            $builder->orderBy('category_id')->orderBy('order');
+           // $builder->orderBy('category_id')->orderBy('order');
         });
     }
 }

@@ -22,6 +22,7 @@ class SubcategoryController extends Controller
                 $query->from('subcategories')->distinct('category_id', 'name');
             })
             ->get();*/
+
         $subcategories = Subcategory::query()
             ->distinct('category_id', 'name', 'order')
             ->get();
