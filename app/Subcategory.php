@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
 
 class Subcategory extends Model
 {
@@ -34,6 +35,10 @@ class Subcategory extends Model
 
         static::deleting(function($subcategory) {
             $subcategory->products()->delete();
+        });
+
+        static::addGlobalScope('order', function (Builder $builder) {
+            $builder->orderBy('category_id')->orderBy('order');
         });
     }
 }

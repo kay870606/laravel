@@ -117,10 +117,11 @@ class ProductController extends Controller
      *
      * @param \App\Product $product
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Product $product)
     {
-        $product->destroy();
+        $product->delete();
         return redirect('/products');
     }
 

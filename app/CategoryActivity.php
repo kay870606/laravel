@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -21,5 +22,14 @@ class CategoryActivity extends Model
     public function category()
     {
         return $this->belongsTo('App\Category');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('order', function (Builder $builder) {
+            $builder->orderBy('category_id');
+        });
     }
 }

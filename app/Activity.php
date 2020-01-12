@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -16,5 +17,14 @@ class Activity extends Model
     public function getImageUrlAttribute()
     {
         return asset('storage/' . $this->image_path);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('order', function (Builder $builder) {
+            $builder->orderBy('id');
+        });
     }
 }

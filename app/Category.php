@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -41,6 +42,10 @@ class Category extends Model
             $category->subcategories()->delete();
             $category->beacons()->delete();
             $category->categoryActivities()->delete();
+        });
+
+        static::addGlobalScope('order', function (Builder $builder) {
+            $builder->orderBy('number');
         });
     }
 }
