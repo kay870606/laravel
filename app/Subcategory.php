@@ -37,8 +37,6 @@ class Subcategory extends Model
             $subcategory->products()->delete();
         });
 
-        static::addGlobalScope('order', function (Builder $builder) {
-            $builder->orderBy('category_id')->orderBy('order');
-        });
+       
     }
 }

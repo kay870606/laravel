@@ -44,8 +44,6 @@ class Category extends Model
             $category->categoryActivities()->delete();
         });
 
-        static::addGlobalScope('order', function (Builder $builder) {
-            $builder->orderBy('number');
-        });
+
     }
 }
