@@ -57,7 +57,7 @@
 
         <div class="field">
             <label class="label">圖片</label>
-            <input type="file" name="image" required>
+            <input type="file" name="image">
         </div>
 
         <div class="field">

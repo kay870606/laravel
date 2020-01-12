@@ -24,16 +24,34 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'subcategory_id' => 'required|integer|exists:subcategories,id',
-            'ean' => [
-                'required',
-                //Rule::unique('products')->ignore($this->route('product')),
-            ],
-            'name' => 'required',
-            'price' => 'required|integer',
-            'description' => 'required',
-            'specification' => 'required'
-        ];
+        switch ($this->method()) {
+            case 'POST':
+                return [
+                    'subcategory_id' => 'required|integer|exists:subcategories,id',
+                    'ean' => [
+                        'required',
+                        //Rule::unique('products')->ignore($this->route('product')),
+                    ],
+                    'name' => 'required',
+                    'price' => 'required|integer',
+                    'description' => 'required',
+                    'specification' => 'required',
+                    'image' => 'image|file'
+                ];
+                break;
+            default:
+                return [
+                    'subcategory_id' => 'required|integer|exists:subcategories,id',
+                    'ean' => [
+                        'required',
+                        //Rule::unique('products')->ignore($this->route('product')),
+                    ],
+                    'name' => 'required',
+                    'price' => 'required|integer',
+                    'description' => 'required',
+                    'specification' => 'required'
+                ];
+                break;
+        }
     }
 }
