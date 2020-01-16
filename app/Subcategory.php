@@ -37,8 +37,15 @@ class Subcategory extends Model
             $subcategory->products()->delete();
         });
 
-        static::addGlobalScope('order', function (Builder $builder) {
+        /*static::addGlobalScope('order', function (Builder $builder) {
+            $builder->addSelect(['category_number' => Category::select('number')
+                ->whereColumn('category_id', 'categories.id')
+                ->limit(1)
+            ])->orderBy('category_number');
+        });*/
+
+        /*static::addGlobalScope('order', function (Builder $builder) {
            // $builder->orderBy('category_id')->orderBy('order');
-        });
+        });*/
     }
 }

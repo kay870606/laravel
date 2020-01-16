@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BasicCollection;
 use App\Product;
 use App\Subcategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SubcategoryController extends Controller
 {
@@ -24,9 +26,14 @@ class SubcategoryController extends Controller
             ->get();*/
 
         $subcategories = Subcategory::query()
-            ->distinct('category_id', 'name', 'order')
-            ->get();
-        //$subcategories = Subcategory::orderBy('id')->get();
+            ->with('category')
+            ->addSelect(['category_number' => Category::select('number')
+                ->whereColumn('category_id', 'categories.id')
+                ->limit(1)
+            ])
+            ->distinct('category_id', 'name')
+            ->get()->sortBy('order')->sortBy('category_number')->values()->all();
+
         return (new BasicCollection($subcategories))->additional(['api_id' => 13]);
     }
 

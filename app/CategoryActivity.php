@@ -29,7 +29,10 @@ class CategoryActivity extends Model
         parent::boot();
 
         static::addGlobalScope('order', function (Builder $builder) {
-            $builder->orderBy('category_id');
+            $builder->addSelect(['category_number' => Category::select('number')
+                ->whereColumn('category_id', 'categories.id')
+                ->limit(1)
+            ])->orderBy('category_number');
         });
     }
 }
