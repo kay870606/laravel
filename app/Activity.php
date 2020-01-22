@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Activity extends Model
 {
     use SoftDeletes;
-
+    
     protected $guarded = [];
 
     protected $appends = ['image_url'];
