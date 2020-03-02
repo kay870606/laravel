@@ -9,12 +9,12 @@ use Illuminate\Http\Response;
 
 class ActivityController extends Controller
 {
-    /*private $imagePath;
+    private $imagePath;
 
     public function __construct()
     {
         $this->imagePath = 'activities/' . date('Y-m-d');
-    }*/
+    }
 
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class ActivityController extends Controller
 
     public function index()
     {
-        return Activity::imageStorePath;
+        //return Activity::imageStorePath;
         $activities = Activity::orderBy('id')->get();
         return view('activities.index', compact('activities'));
     }
