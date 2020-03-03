@@ -19,6 +19,11 @@ class Product extends Model
         return asset('storage/' . $this->image_path);
     }
 
+    public static function getDefaultImageStoragePath()
+    {
+        return 'images/products/' . date('Y-m-d');
+    }
+
     public function subcategory()
     {
         return $this->belongsTo('App\Subcategory');

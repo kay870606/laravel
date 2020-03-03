@@ -42,7 +42,7 @@ class CategoryActivityController extends Controller
      */
     public function store(CategoryActivityRequest $request)
     {
-        $path = $request->image->store($this->getImagePath());
+        $path = $request->image->store(CategoryActivity::getDefaultImageStoragePath());
         CategoryActivity::create(
             ['category_id' => $request->category_id, 'name' => $request->name, 'price' => $request->price, 'description' => $request->description, 'image_path' => $path]
         );
@@ -83,7 +83,7 @@ class CategoryActivityController extends Controller
     public function update(CategoryActivityRequest $request, CategoryActivity $categoryActivity)
     {
         if ($request->hasFile('image')) {
-            $path = $request->image->store($this->getImagePath());
+            $path = $request->image->store(CategoryActivity::getDefaultImageStoragePath());
             $categoryActivity->update(
                 ['category_id' => $request->category_id, 'name' => $request->name, 'price' => $request->price, 'description' => $request->description, 'image_path' => $path]
             );
@@ -107,10 +107,5 @@ class CategoryActivityController extends Controller
     {
         $categoryActivity->delete();
         return redirect('/category-activities');
-    }
-
-    public function getImagePath()
-    {
-        return 'category-activities/' . date('Y-m-d');
     }
 }

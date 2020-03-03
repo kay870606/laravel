@@ -41,7 +41,7 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $path = $request->image->store($this->getImagePath());
+        $path = $request->image->store(Product::getDefaultImageStoragePath());
         Product::create([
             'subcategory_id' => $request->subcategory_id,
             'ean' => $request->ean,
@@ -88,7 +88,7 @@ class ProductController extends Controller
     public function update(ProductRequest $request, Product $product)
     {
         if ($request->hasFile('image')) {
-            $path = $request->image->store($this->getImagePath());
+            $path = $request->image->store(Product::getDefaultImageStoragePath());
             $product->update([
                 'subcategory_id' => $request->subcategory_id,
                 'ean' => $request->ean,
@@ -123,10 +123,5 @@ class ProductController extends Controller
     {
         $product->delete();
         return redirect('/products');
-    }
-
-    public function getImagePath()
-    {
-        return 'products/' . date('Y-m-d');
     }
 }

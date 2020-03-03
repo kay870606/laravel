@@ -19,6 +19,11 @@ class CategoryActivity extends Model
         return asset('storage/' . $this->image_path);
     }
 
+    public static function getDefaultImageStoragePath()
+    {
+        return 'images/category-activities/' . date('Y-m-d');
+    }
+
     public function category()
     {
         return $this->belongsTo('App\Category');

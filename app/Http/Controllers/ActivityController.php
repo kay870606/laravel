@@ -9,13 +9,6 @@ use Illuminate\Http\Response;
 
 class ActivityController extends Controller
 {
-    private $imagePath;
-
-    public function __construct()
-    {
-        $this->imagePath = 'activities/' . date('Y-m-d');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +17,6 @@ class ActivityController extends Controller
 
     public function index()
     {
-        //return Activity::imageStorePath;
         $activities = Activity::orderBy('id')->get();
         return view('activities.index', compact('activities'));
     }
@@ -47,7 +39,7 @@ class ActivityController extends Controller
      */
     public function store(ActivityRequest $request)
     {
-        $path = $request->image->store($this->imagePath);
+        $path = $request->image->store(Activity::getDefaultImageStoragePath());
         Activity::create(
             ['name' => $request->name, 'image_path' => $path]
         );
@@ -86,7 +78,7 @@ class ActivityController extends Controller
     public function update(ActivityRequest $request, Activity $activity)
     {
         if ($request->hasFile('image')) {
-            $path = $request->image->store($this->getImagePath());
+            $path = $request->image->store(Activity::getDefaultImageStoragePath());
             $activity->update(
                 ['name' => $request->name, 'image_path' => $path]
             );
@@ -110,10 +102,5 @@ class ActivityController extends Controller
     {
         $activity->delete();
         return redirect('/activities');
-    }
-
-    public function getImagePath()
-    {
-        return 'activities/' . date('Y-m-d');
     }
 }

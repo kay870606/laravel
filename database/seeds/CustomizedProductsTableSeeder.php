@@ -1231,7 +1231,5 @@ class CustomizedProductsTableSeeder extends Seeder
                     'deleted_at' => NULL,
                 ),
         ));
-
-
     }
 }
