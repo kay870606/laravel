@@ -30,6 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('category-beacons', 'CategoryBeaconController');
     Route::resource('category-activities', 'CategoryActivityController');
     Route::resource('product-qr-code', 'QRCodeController');
+    Route::resource('subcategory-counter', 'SubcategoryCounterController');
+    Route::post('/subcategory-counter/delete-all', 'SubcategoryCounterController@destroyAll');
 });
 
 Route::get('qr-code', 'QRCodeController@index2');

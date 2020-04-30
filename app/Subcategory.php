@@ -29,6 +29,11 @@ class Subcategory extends Model
         return $this->hasMany('App\Product');
     }
 
+    public function subcategoryCounters()
+    {
+        return $this->hasMany('App\SubcategoryCounter');
+    }
+
     protected static function boot()
     {
         parent::boot();

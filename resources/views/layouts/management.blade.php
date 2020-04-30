@@ -35,6 +35,9 @@
                 <a class="link is-info" href="/product-qr-code">QR Code</a>
             </td>
             <td>
+                <a class="link is-info" href="/subcategory-counter">小分類點擊次數</a>
+            </td>
+            <td>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
                     <div class="controller">
