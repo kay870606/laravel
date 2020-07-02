@@ -72,7 +72,7 @@ class CategoryController extends Controller
      * @param Category $category
      * @return Response
      */
-    public function update(CategoryRequest $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)//要通過request的規則
     {
         $validated = $request->validated();
         $category->update($validated);

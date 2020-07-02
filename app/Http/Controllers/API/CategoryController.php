@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category:: with(
+        $categories = Category:: with(//由於小分類內部資料有重複，在這裡進行顯示處理
             ['subcategories' => function ($query) {
                 $query->distinct('category_id', 'name')->orderBy('category_id');
             }, 'subcategories.products'])
@@ -24,7 +24,7 @@ class CategoryController extends Controller
             ->with('categoryActivities')
             ->orderBy('id')
             ->get();
-        return (new BasicCollection($categories))->additional(['api_id' => 1]);
+        return (new BasicCollection($categories))->additional(['api_id' => 1]);//因應學長需要
     }
 
     /**

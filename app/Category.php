@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes;//使用軟刪除
 
-    protected $guarded = [];
+    protected $guarded = [];//批量賦值-白名單：可以使用create語法
+
+    //以下為各個關係
 
     public function subcategories()
     {
@@ -33,6 +35,8 @@ class Category extends Model
     {
         return $this->hasManyThrough('App\Product', 'App\Subcategory');
     }
+
+    //更改預設刪除，以及排序方法
 
     protected static function boot()
     {

@@ -15,11 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => false]);//與登入相關的路由
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');//登入成功後的行為
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () {//登入後才可訪問的頁面
     Route::resource('categories', 'CategoryController');
     Route::resource('subcategories', 'SubcategoryController');
     Route::resource('beacons', 'BeaconController');
@@ -34,8 +34,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/subcategory-counter/delete-all', 'SubcategoryCounterController@destroyAll');
 });
 
-Route::get('qr-code', 'QRCodeController@index2');
-Route::get('search', 'SearchController@index');
+//以下為測試用
+
+//Route::get('qr-code', 'QRCodeController@index2');
+//Route::get('search', 'SearchController@index');
 
 //Route::get('categories', 'CategoryController@index');
 //Route::get('categories_beacons/{category_beacon}', 'CategoryBeaconController@show');
@@ -48,11 +50,11 @@ Route::get('search', 'SearchController@index');
     Route::get('/beacons/{categoryBeacon}', 'CategoryBeaconController@show');
 });*/
 
-Route::get('/test', function () {
+/*Route::get('/test', function () {
     //Storage::put('file.txt', 'Contents');
     //return Storage::get('file.txt');
-    /*$content= Storage::get('8.png');
+    $content= Storage::get('8.png');
     return response($content, 200, [
         'Content-Type' => 'image/png',
-    ]);*/
-});
+    ]);
+});*/
