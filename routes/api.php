@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+});*/
 
 Route::get('/', function () {//api目錄，跳轉至其它api頁面
     return [
@@ -29,7 +29,7 @@ Route::get('/', function () {//api目錄，跳轉至其它api頁面
         'position-records' => url('/api/position-records'),
         'subcategory-counters' => url('/api/subcategory-counters'),
         'products'=>url('/api/products'),
-        'independentBeacon' => url('/api/independent-beacons/latest'),
+        //'independentBeacon' => url('/api/independent-beacons/latest'),
         //'others' => url('/api/others'),
     ];
 });
@@ -46,7 +46,6 @@ Route::apiResource('orders', 'API\OrderController');
 Route::apiResource('position-records', 'API\PositionRecordController');
 Route::apiResource('subcategory-counters', 'API\SubcategoryCounterController');
 Route::apiResource('products', 'API\ProductController');
-
 
 //以下為測試用
 
